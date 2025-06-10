@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Users, Award, BookOpen, Calendar, Star, Play } from 'lucide-react';
 
@@ -78,16 +77,30 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/public/lovable-uploads/WhatsApp.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Optional overlay for readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+        {/* Section Content */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Academic Programs</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive education from kindergarten through grade 12, designed to nurture every student's potential.
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Academic Programs</h2>
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+              Comprehensive education from kindergarten onward, designed to nurture every student's full potential.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8 card-hover">
+            <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <BookOpen className="h-8 w-8 text-blue-600" />
               </div>
@@ -103,7 +116,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 card-hover">
+            <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Users className="h-8 w-8 text-green-600" />
               </div>
@@ -119,7 +132,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 card-hover">
+            <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Award className="h-8 w-8 text-purple-600" />
               </div>

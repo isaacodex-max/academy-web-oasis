@@ -1,6 +1,6 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BookOpen, Users, Award, Clock, ArrowRight, CheckCircle } from 'lucide-react';
+import TypewriterWord from '../components/TypewriterWord'; // adjust path if needed
 
 interface AcademicLevelProps {
   level: 'elementary' | 'middle' | 'high' | 'programs';
@@ -8,6 +8,19 @@ interface AcademicLevelProps {
 }
 
 const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
+  const elementaryBackgrounds = [
+    "/lovable-uploads/12.jpg",
+    "/lovable-uploads/45.jpg",
+    "/lovable-uploads/67.jpg",
+    "/lovable-uploads/basic1.jpg",
+    "/lovable-uploads/3.jpg",
+    "/lovable-uploads/basic2.jpg",
+     "/lovable-uploads/45.jpg",
+    "/lovable-uploads/creche.jpg",
+    "/lovable-uploads/basic3.jpg",
+    "/lovable-uploads/basic3.jpg"
+  ];
+
   const getLevelData = () => {
     switch (level) {
       case 'elementary':
@@ -27,12 +40,17 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
             'Technology integration'
           ],
           curriculum: [
-            { subject: 'English Language', description: 'Reading, writing, speaking, and listening skills development' },
-            { subject: 'Mathematics', description: 'Number sense, problem-solving, and mathematical reasoning' },
-            { subject: 'Basic Science', description: 'Inquiry-based exploration of natural world' },
-            { subject: 'Social Studies', description: 'Community, geography, and cultural awareness' },
-            { subject: 'Arts', description: 'Visual arts, music, and creative expression' },
-            { subject: 'Physical Education', description: 'Motor skills and healthy lifestyle habits' }
+            { subject: 'English Language',  },
+            { subject: 'Mathematics', },
+            { subject: 'Basic Science and Technology', },
+            { subject: 'Prevocasional Studies',  },
+            { subject: 'National values Education',  },
+            { subject: 'Cultural and Creative art',  },
+            { subject: 'Christian religious Studies',  },
+             { subject: 'Computer Studies',  },
+              { subject: 'Music',  },
+             { subject: 'History', },
+             { subject: 'Yoruba language studies',  }
           ]
         };
       case 'middle':
@@ -115,15 +133,46 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
 
   const data = getLevelData();
 
+  // Only use slider for elementary
+  const [bgIdx, setBgIdx] = useState(0);
+
+  useEffect(() => {
+    if (level !== 'elementary') return;
+    const interval = setInterval(() => {
+      setBgIdx(idx => (idx + 1) % elementaryBackgrounds.length);
+    }, 4000); // Change every 4 seconds
+    return () => clearInterval(interval);
+  }, [level, elementaryBackgrounds.length]);
+
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className={`py-40 ${level === 'elementary' ? 'text-white relative overflow-hidden' : 'bg-gradient-to-r from-blue-600 to-purple-700 text-white'}`}
+        style={
+          level === 'elementary'
+            ? {
+                backgroundImage: `url('${elementaryBackgrounds[bgIdx]}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '70vh',
+                transition: 'background-image 1s ease'
+              }
+            : {}
+        }
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-0" style={{ display: level === 'elementary' ? 'block' : 'none' }}></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{data.title}</h1>
-            <p className="text-2xl mb-6 opacity-90">{data.subtitle}</p>
-            <p className="text-xl max-w-3xl mx-auto opacity-90">{data.description}</p>
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg tracking-tight animate-fade-in">
+              {data.title}
+            </h1>
+            <p className="text-2xl md:text-3xl mb-6 opacity-95 font-semibold drop-shadow-md animate-fade-in">
+              {data.subtitle}
+            </p>
+            <p className="text-xl max-w-3xl mx-auto opacity-95 font-medium drop-shadow animate-fade-in">
+              {data.description}
+            </p>
           </div>
         </div>
       </section>
@@ -178,24 +227,38 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
       </section>
 
       {/* Curriculum Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Curriculum Overview</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Rigorous academic program that challenges students while providing the support they need to succeed.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {data.curriculum.map((subject, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{subject.subject}</h3>
-                <p className="text-gray-600">{subject.description}</p>
-              </div>
-            ))}
-          </div>
+      <section className="relative py-16 bg-white overflow-hidden">
+  {/* Video Background */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover z-0"
+  >
+    <source src="public/lovable-uploads/basic44.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  {/* Overlay for readability */}
+  <div className="absolute inset-0 bg-white bg-opacity-70 z-10"></div>
+  {/* Section Content */}
+  <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Curriculum Overview</h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Rigorous academic program that challenges students while providing the support they need to succeed.
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      {data.curriculum.map((subject, index) => (
+        <div key={index} className="bg-gray-50 rounded-xl p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-3">{subject.subject}</h3>
+          <p className="text-gray-600">{subject.description}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Daily Schedule Sample */}
       <section className="py-16 bg-gray-50">
