@@ -8,7 +8,7 @@ interface AcademicLevelProps {
 }
 
 const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
-  const elementaryBackgrounds = [
+  const elementaryBackgrounds = React.useMemo(() => [
     "/lovable-uploads/12.jpg",
     "/lovable-uploads/45.jpg",
     "/lovable-uploads/67.jpg",
@@ -17,7 +17,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     "/lovable-uploads/Basic2.jpg",
     "/lovable-uploads/creche.jpg",
     "/lovable-uploads/Basic3.jpg"
-  ];
+  ], []);
 
   const getLevelData = () => {
     switch (level) {
@@ -148,7 +148,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
       const img = new window.Image();
       img.src = src;
     });
-  }, [level]);
+  }, [level, elementaryBackgrounds]);
 
   return (
     <div className="min-h-screen pt-20">
