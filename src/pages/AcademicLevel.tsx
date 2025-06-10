@@ -12,11 +12,11 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     "/lovable-uploads/12.jpg",
     "/lovable-uploads/45.jpg",
     "/lovable-uploads/67.jpg",
-    "/lovable-uploads/basic1.jpg",
+    "/lovable-uploads/Basic1.jpg",
     "/lovable-uploads/3.jpg",
-    "/lovable-uploads/basic2.jpg",
+    "/lovable-uploads/Basic2.jpg",
     "/lovable-uploads/creche.jpg",
-    "/lovable-uploads/basic3.jpg",
+    "/lovable-uploads/Basic3.jpg"
   ];
 
   const getLevelData = () => {
@@ -135,7 +135,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
   const [bgIdx, setBgIdx] = useState(0);
 
   useEffect(() => {
-    if (level !== 'elementary') return;
+    if (level !== 'elementary' || elementaryBackgrounds.length === 0) return;
     const interval = setInterval(() => {
       setBgIdx(idx => (idx + 1) % elementaryBackgrounds.length);
     }, 4000); // Change every 4 seconds
