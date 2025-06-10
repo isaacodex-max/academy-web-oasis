@@ -86,7 +86,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          <source src="/public/lovable-uploads/WhatsApp.mp4" type="video/mp4" />
+          <source src="/lovable-uploads/WhatsApp.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Optional overlay for readability */}
