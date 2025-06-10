@@ -15,10 +15,8 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     "/lovable-uploads/basic1.jpg",
     "/lovable-uploads/3.jpg",
     "/lovable-uploads/basic2.jpg",
-     "/lovable-uploads/45.jpg",
     "/lovable-uploads/creche.jpg",
     "/lovable-uploads/basic3.jpg",
-    "/lovable-uploads/basic3.jpg"
   ];
 
   const getLevelData = () => {
