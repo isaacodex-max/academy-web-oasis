@@ -142,6 +142,14 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     return () => clearInterval(interval);
   }, [level, elementaryBackgrounds.length]);
 
+  useEffect(() => {
+    if (level !== 'elementary') return;
+    elementaryBackgrounds.forEach(src => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, [level]);
+
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
