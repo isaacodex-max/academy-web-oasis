@@ -172,7 +172,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 minHeight: '70vh',
-                transition: 'background-image 1s ease'
+                transition: 'background-image 3s ease-in-out',
               }
             : {}
         }
@@ -285,56 +285,91 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
               Structured learning environment that balances academics with enrichment activities.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+          <div className="bg-green-50 rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">8:00 - 8:30 AM</span>
+                  <span className="font-semibold text-gray-900">7:30 - 8:30 AM</span>
                 </div>
                 <span className="text-gray-600">Morning Assembly & Advisory</span>
               </div>
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">8:30 - 9:30 AM</span>
+                  <span className="font-semibold text-gray-900">8:30Am - 8:40 AM</span>
                 </div>
-                <span className="text-gray-600">Period 1: Core Subject</span>
+                <span className="text-gray-600">Morning Drills</span>
               </div>
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">9:30 - 10:30 AM</span>
+                  <span className="font-semibold text-gray-900">8:40Am - 9:20 AM</span>
                 </div>
-                <span className="text-gray-600">Period 2: Core Subject</span>
+                <span className="text-gray-600">Period 1</span>
               </div>
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">10:30 - 10:45 AM</span>
+                  <span className="font-semibold text-gray-900">9:20Am- 10:00 AM</span>
                 </div>
-                <span className="text-gray-600">Break</span>
+                <span className="text-gray-600">Period 2</span>
               </div>
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">10:45 - 11:45 AM</span>
+                  <span className="font-semibold text-gray-900">10:00Am - 10:10 AM</span>
                 </div>
-                <span className="text-gray-600">Period 3: Specialized Subject</span>
+                <span className="text-gray-600">Short-Break</span>
               </div>
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">11:45 AM - 12:30 PM</span>
+                  <span className="font-semibold text-gray-900">10:10 AM - 10:50 AM</span>
                 </div>
-                <span className="text-gray-600">Lunch & Recreation</span>
+                <span className="text-gray-600">Period 3</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-blue-600 mr-3" />
-                  <span className="font-semibold text-gray-900">12:30 - 3:15 PM</span>
+                  <span className="font-semibold text-gray-900">10:50Am - 11:30 AM</span>
                 </div>
-                <span className="text-gray-600">Afternoon Classes & Activities</span>
+                <span className="text-gray-600">Period 4</span>
+              </div>
+               <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="font-semibold text-gray-900">11:30 Am- 12:00 PM</span>
+                </div>
+                <span className="text-gray-600">Long Break</span>
+              </div>
+               <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="font-semibold text-gray-900">12:00pm - 12:40PM</span>
+                </div>
+                <span className="text-gray-600">Period 5</span>
+              </div>
+               <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="font-semibold text-gray-900">12:40pm - 1:20 PM</span>
+                </div>
+                <span className="text-gray-600">Period 6</span>
+              </div>
+               <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="font-semibold text-gray-900">1:20pm - 2:00 PM</span>
+                </div>
+                <span className="text-gray-600">Period 7</span>
+              </div>
+               <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                  <span className="font-semibold text-gray-900">2:00pm - 2:40pmPM</span>
+                </div>
+                <span className="text-gray-600">Period 8</span>
               </div>
             </div>
           </div>
