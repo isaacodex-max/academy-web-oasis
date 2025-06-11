@@ -285,7 +285,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
               Structured learning environment that balances academics with enrichment activities.
             </p>
           </div>
-          <div className="bg-green-50 rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+          <div className="bg-green-100 rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">

@@ -105,7 +105,7 @@ const About: React.FC = () => {
               className="h-[500px] w-full rounded-xl flex items-center justify-center bg-cover bg-center"
               style={{ backgroundImage: "url('/lovable-uploads/abc.jpg')" }}
             >
-              <div className="bg-black/40 w-full h-full rounded-xl flex items-center justify-center">
+              <div className="bg-green-800/30 w-full h-full rounded-xl flex items-center justify-center">
                 {/* Place any content here */}
               </div>
             </div>
@@ -114,16 +114,18 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Principal */}
             <div className="flex flex-col items-center text-center">
-              <img
-                src="/lovable-uploads/principal.jpg" // replace with your actual image path
-                
-                className="w-48 h-48 object-cover rounded-full shadow-lg mb-6"
-              />
+              <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-white bg-gray-200 flex items-center justify-center">
+                <img
+                  src="/lovable-uploads/Principal.jpg"
+                  alt="Principal"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Mrs. Ibukun Agbi</h3>
               <p className="text-gray-600 mb-4">Principal</p>
               <p className="text-gray-700">
@@ -132,11 +134,13 @@ const About: React.FC = () => {
             </div>
             {/* Director */}
             <div className="flex flex-col items-center text-center">
-              <img
-                src="/lovable-uploads/director.jpg" // replace with your actual image path
-                
-                className="w-48 h-48 object-cover rounded-full shadow-lg mb-6"
-              />
+              <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-white bg-gray-200 flex items-center justify-center">
+                <img
+                  src="/lovable-uploads/Principal.jpg" // replace with your actual image path
+                  alt="Director"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Engr. John Agbi</h3>
               <p className="text-gray-600 mb-4">Director</p>
               <p className="text-gray-700">
