@@ -105,7 +105,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <BookOpen className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Elementary School</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-900 mb-6">
                 Building strong foundations in reading, writing, mathematics, and critical thinking through engaging, hands-on learning experiences.
               </p>
               <button 
@@ -121,7 +121,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <Users className="h-8 w-8 text-green-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Middle School</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-900 mb-6">
                 Preparing students for high school with advanced coursework, leadership opportunities, and character development programs.
               </p>
               <button 
@@ -137,7 +137,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <Award className="h-8 w-8 text-purple-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">High School</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-900 mb-6">
                 College-preparatory curriculum with AP courses, dual enrollment options, and comprehensive college counseling support.
               </p>
               <button 

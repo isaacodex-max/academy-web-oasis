@@ -9,12 +9,12 @@ interface AcademicLevelProps {
 
 const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
   const elementaryBackgrounds = React.useMemo(() => [
+    "/lovable-uploads/3.jpg",
     "/lovable-uploads/12.jpg",
+     "/lovable-uploads/22.jpg",
+    "/lovable-uploads/33.jpg",
     "/lovable-uploads/45.jpg",
     "/lovable-uploads/67.jpg",
-    "/lovable-uploads/33.jpg",
-    "/lovable-uploads/3.jpg",
-    "/lovable-uploads/22.jpg",
     "/lovable-uploads/111.jpg",
     "/lovable-uploads/333.jpg",
   ], []);
@@ -67,13 +67,18 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
             'College preparation',
             'Advisory program'
           ],
-          curriculum: [
-            { subject: 'English Language Arts', description: 'Advanced literature analysis and writing skills' },
-            { subject: 'Mathematics', description: 'Algebra readiness and advanced problem solving' },
-            { subject: 'Science', description: 'Biology, chemistry, and physics foundations' },
-            { subject: 'Social Studies', description: 'World cultures, history, and civics' },
-            { subject: 'World Languages', description: 'Spanish and French language programs' },
-            { subject: 'Electives', description: 'Art, music, technology, and specialized courses' }
+            curriculum: [
+            { subject: 'English Language',  },
+            { subject: 'Mathematics', },
+            { subject: 'Basic Science and Technology', },
+            { subject: 'Prevocasional Studies',  },
+            { subject: 'National values Education',  },
+            { subject: 'Cultural and Creative art',  },
+            { subject: 'Christian religious Studies',  },
+             { subject: 'Computer Studies',  },
+              { subject: 'Music',  },
+             { subject: 'History', },
+             { subject: 'Yoruba language studies',  }
           ]
         };
       case 'high':
@@ -92,13 +97,18 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
             'Honor societies',
             'Leadership academies'
           ],
-          curriculum: [
-            { subject: 'English', description: 'Advanced composition, literature, and communication' },
-            { subject: 'Mathematics', description: 'Calculus, statistics, and advanced mathematics' },
-            { subject: 'Sciences', description: 'AP Biology, Chemistry, Physics, and Environmental Science' },
-            { subject: 'Social Studies', description: 'AP History, Government, Economics, and Psychology' },
-            { subject: 'World Languages', description: 'Spanish, French, Mandarin, and Latin' },
-            { subject: 'Electives', description: 'Fine arts, technology, business, and specialized programs' }
+           curriculum: [
+            { subject: 'English Language',  },
+            { subject: 'Mathematics', },
+            { subject: 'Basic Science and Technology', },
+            { subject: 'Prevocasional Studies',  },
+            { subject: 'National values Education',  },
+            { subject: 'Cultural and Creative art',  },
+            { subject: 'Christian religious Studies',  },
+             { subject: 'Computer Studies',  },
+              { subject: 'Music',  },
+             { subject: 'History', },
+             { subject: 'Yoruba language studies',  }
           ]
         };
       default:
@@ -246,18 +256,18 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     Your browser does not support the video tag.
   </video>
   {/* Overlay for readability */}
-  <div className="absolute inset-0 bg-white bg-opacity-70 z-10"></div>
+  <div className="absolute inset-0 bg-green-500 bg-opacity-30 z-10"></div>
   {/* Section Content */}
   <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Curriculum Overview</h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p className="text-x2 text-black max-w-3xl mx-auto">
         Rigorous academic program that challenges students while providing the support they need to succeed.
       </p>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
       {data.curriculum.map((subject, index) => (
-        <div key={index} className="bg-gray-50 rounded-xl p-6">
+        <div key={index} className="bg-white/30 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/40">
           <h3 className="text-xl font-bold text-gray-900 mb-3">{subject.subject}</h3>
           <p className="text-gray-600">{subject.description}</p>
         </div>
