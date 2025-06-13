@@ -121,7 +121,7 @@ const About: React.FC = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-white bg-gray-200 flex items-center justify-center">
                 <img
-                  src="/lovable-uploads/Principal.jpg"
+                  src="/lovable-uploads/Principal.png"
                   alt="Principal"
                   className="w-full h-full object-cover"
                 />
@@ -136,7 +136,7 @@ const About: React.FC = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-white bg-gray-200 flex items-center justify-center">
                 <img
-                  src="/lovable-uploads/Principal.jpg" // replace with your actual image path
+                  src="/lovable-uploads/Principal.png" // replace with your actual image path
                   alt="Director"
                   className="w-full h-full object-cover"
                 />
