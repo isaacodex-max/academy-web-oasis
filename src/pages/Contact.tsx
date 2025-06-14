@@ -46,8 +46,18 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="relative py-16 bg-white overflow-hidden"
+        style={{
+          backgroundImage: "url('/lovable-uploads/ab.jpg')", // replace with your image path
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Optional: Overlay for readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+        {/* Section Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
@@ -55,7 +65,7 @@ const Contact: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                       Full Name *
                     </label>
                     <input
@@ -70,7 +80,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                       Email Address *
                     </label>
                     <input
@@ -87,7 +97,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
                       Phone Number
                     </label>
                     <input
@@ -101,7 +111,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
                       Subject *
                     </label>
                     <select
@@ -122,7 +132,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                     Message *
                   </label>
                   <textarea
@@ -148,15 +158,15 @@ const Contact: React.FC = () => {
 
             {/* Contact Details */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
               <div className="space-y-8">
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-3 rounded-lg mr-4">
                     <MapPin className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Visit Our Campus</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-semibold text-yellow-900 mb-2">Visit Our Campus</h3>
+                    <p className="text-blue-600">
                       PLOT 15, JESUS AVENUE,<br />
                       OLOGBUN, SIMAWA-LIKOSI ROAD,<br />
                       SHAGAMU, OGUN STATE.
@@ -169,8 +179,8 @@ const Contact: React.FC = () => {
                     <Phone className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-semibold text-green-900 mb-2">Call Us</h3>
+                    <p className="text-yellow-600">
                       Main Office: +2348058594710<br />
                       Admissions: +2347039404364<br />
                 
@@ -183,8 +193,8 @@ const Contact: React.FC = () => {
                     <Mail className="h-6 w-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-semibold text-blue-500 mb-2">Email Us</h3>
+                    <p className="text-green-600">
                       General: extensiveacademy@gmail.com<br />
                       Admissions: extensiveacademy@gmail.com<br />
                       Support: extensiveacademy@gmail.com
@@ -197,8 +207,8 @@ const Contact: React.FC = () => {
                     <Clock className="h-6 w-6 text-yellow-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Office Hours</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-semibold text-yellow-900 mb-2">Office Hours</h3>
+                    <p className="text-blue-600">
                       Monday - Friday: 8:00 AM - 5:00 PM<br />
                       Saturday:Closed<br />
                       Sunday: Closed
