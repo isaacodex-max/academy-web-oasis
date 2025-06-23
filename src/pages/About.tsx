@@ -127,7 +127,7 @@ const About: React.FC = () => {
                 />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Mrs. Ibukun Agbi</h3>
-              <p className="text-gray-600 mb-4">Principal</p>
+              <p className="text-gray-600 mb-4">Proprietress</p>
               <p className="text-gray-700">
                 "At Extensive Academy, we believe every child has the potential to achieve greatness. Our mission is to nurture, inspire, and empower our students to become confident, compassionate, and innovative leaders of tomorrow."
               </p>

@@ -24,9 +24,9 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
       case 'elementary':
         return {
           title: 'Elementary School',
-          subtitle: 'Kindergarten - Primary 5',
+          subtitle: 'Kindergarten - Primary 6',
           description: 'Building strong foundations in reading, writing, mathematics, and critical thinking through engaging, hands-on learning experiences.',
-          grades: 'K-5',
+          grades: 'K-6',
           students: '200+',
           ratio: '12:1',
           features: [
@@ -48,7 +48,8 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
              { subject: 'Computer Studies',  },
               { subject: 'Music',  },
              { subject: 'History', },
-             { subject: 'Yoruba language studies',  }
+             { subject: 'Yoruba language studies',  },
+            { subject: 'French',  }
           ]
         };
       case 'middle':
