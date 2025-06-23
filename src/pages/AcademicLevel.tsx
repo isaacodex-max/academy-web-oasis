@@ -196,23 +196,23 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
 
       {/* Stats Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-center"data-aos="fade-up">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-blue-600" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">{data.grades}</div>
               <div className="text-gray-600">Grade Levels</div>
             </div>
-            <div className="text-center">
+            <div data-aos="fade-up" className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-green-600" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">{data.students}</div>
               <div className="text-gray-600">Students Enrolled</div>
             </div>
-            <div className="text-center">
+            <div data-aos="fade-up" className="text-center">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-purple-600" />
               </div>
@@ -225,7 +225,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
 
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Program Features</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -259,7 +259,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
   {/* Overlay for readability */}
   <div className="absolute inset-0 bg-green-500 bg-opacity-30 z-10"></div>
   {/* Section Content */}
-  <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div data-aos="fade-up" className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Curriculum Overview</h2>
       <p className="text-x2 text-black max-w-3xl mx-auto">

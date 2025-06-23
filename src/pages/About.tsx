@@ -20,7 +20,7 @@ const About: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-green-50 p-8 rounded-xl">
+            <div data-aos="fade-up" className="bg-green-50 p-8 rounded-xl">
               <div className="flex items-center mb-6">
                 <Target className="h-8 w-8 text-green-600 mr-3" />
                 <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
@@ -29,7 +29,7 @@ const About: React.FC = () => {
                 To provide a comprehensive, challenging, and supportive educational environment that empowers students to achieve academic excellence, develop critical thinking skills, and become responsible global citizens.
               </p>
             </div>
-            <div className="bg-blue-50 p-8 rounded-xl">
+            <div className="bg-blue-50 p-8 rounded-xl" data-aos="fade-up">
               <div className="flex items-center mb-6">
                 <Eye className="h-8 w-8 text-blue-600 mr-3" />
                 <h2 className="text-3xl font-bold text-gray-900">Our Vision</h2>
@@ -87,7 +87,7 @@ const About: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-left" className="space-y-6">
+            <div data-aos="fade-up" className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -101,7 +101,7 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div data-aos="fade-right"
+            <div data-aos="fade-up"
               className="h-[500px] w-full rounded-xl flex items-center justify-center bg-cover bg-center"
               style={{ backgroundImage: "url('/lovable-uploads/abc.jpg')" }}
             >
