@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, FileText, Users, DollarSign, CheckCircle, Clock, Download, ArrowRight } from 'lucide-react';
+import { Link } from "react-router-dom"; // Make sure this import is at the top
 
 interface AdmissionsProps {
   onNavigate: (page: string) => void;
@@ -77,45 +78,46 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Application Requirements</h2>
               <div className="space-y-6">
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="0">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Completed Application Form</h4>
                     <p className="text-gray-600">Online application with student and family information</p>
                   </div>
                 </div>
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="100">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Academic Records</h4>
                     <p className="text-gray-600">Transcripts from previous schools (last 2 years)</p>
                   </div>
                 </div>
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="200">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Teacher Recommendations</h4>
                     <p className="text-gray-600">Two letters from current or recent teachers</p>
                   </div>
                 </div>
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="300">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Student Essay</h4>
                     <p className="text-gray-600">Personal statement about interests and goals</p>
                   </div>
                 </div>
-                <div className="flex items-start">
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="400">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Application Fee</h4>
-                    <p className="text-gray-600">$100 non-refundable application fee</p>
+                    <p className="text-gray-600">5000naira non-refundable application fee</p>
                   </div>
                 </div>
               </div>
             </div>
+            
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Download Forms</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Download Form</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                   <div>
@@ -124,24 +126,14 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
                   </div>
                   <Download className="h-5 w-5 text-blue-600" />
                 </div>
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Teacher Recommendation</h4>
-                    <p className="text-sm text-gray-600">Form for teacher references</p>
-                  </div>
-                  <Download className="h-5 w-5 text-blue-600" />
-                </div>
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Financial Aid Application</h4>
-                    <p className="text-sm text-gray-600">Need-based assistance form</p>
-                  </div>
-                  <Download className="h-5 w-5 text-blue-600" />
-                </div>
+              
+             
               </div>
-              <button className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
-                Apply Online
-              </button>
+              <Link to="/apply">
+                <button className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                  Apply Online
+                </button>
+              </Link>
             </div>
           </div>
         </div>
