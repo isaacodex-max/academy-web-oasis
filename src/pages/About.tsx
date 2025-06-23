@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="zoom-in"className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About Extensive Academy</h1>
             <p className="text-xl max-w-3xl mx-auto opacity-90">
@@ -43,7 +43,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 bg-gray-50">
+      <section data-aos="fade-up" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
@@ -51,7 +51,7 @@ const About: React.FC = () => {
               The principles that guide everything we do at Extensive Academy.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-green-600" />
@@ -87,7 +87,7 @@ const About: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div data-aos="fade-left" className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -101,7 +101,7 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div
+            <div data-aos="fade-right"
               className="h-[500px] w-full rounded-xl flex items-center justify-center bg-cover bg-center"
               style={{ backgroundImage: "url('/lovable-uploads/abc.jpg')" }}
             >
@@ -114,11 +114,11 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership */}
-      <section className="py-16 bg-green-100">
+      <section  className="py-16 bg-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Principal */}
-            <div className="flex flex-col items-center text-center">
+            <div data-aos="fade-up" className="flex flex-col items-center text-center">
               <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-white bg-gray-200 flex items-center justify-center">
                 <img
                   src="/lovable-uploads/Principal.png"
@@ -133,7 +133,7 @@ const About: React.FC = () => {
               </p>
             </div>
             {/* Director */}
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center"data-aos="fade-up">
               <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-white bg-gray-200 flex items-center justify-center">
                 <img
                   src="/lovable-uploads/Director.png" // replace with your actual image path
