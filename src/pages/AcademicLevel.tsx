@@ -259,8 +259,8 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
   {/* Overlay for readability */}
   <div className="absolute inset-0 bg-green-500 bg-opacity-30 z-10"></div>
   {/* Section Content */}
-  <div data-aos="fade-up" className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
+  <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-aos="fade-up" className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Curriculum Overview</h2>
       <p className="text-x2 text-black max-w-3xl mx-auto">
         Rigorous academic program that challenges students while providing the support they need to succeed.
@@ -268,7 +268,11 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
       {data.curriculum.map((subject, index) => (
-        <div key={index} className="bg-white/30 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/40">
+        <div
+          key={index}
+          className="bg-white/30 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/40"
+          data-aos="fade-up"
+        >
           <h3 className="text-xl font-bold text-gray-900 mb-3">{subject.subject}</h3>
           <p className="text-gray-600">{subject.description}</p>
         </div>
@@ -286,7 +290,10 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
               Structured learning environment that balances academics with enrichment activities.
             </p>
           </div>
-          <div className="bg-green-100 rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+          <div
+            className="bg-green-100 rounded-xl shadow-lg p-8 max-w-4xl mx-auto"
+            data-aos="fade-up"
+          >
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div className="flex items-center">

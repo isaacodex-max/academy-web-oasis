@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Calendar, FileText, Users, DollarSign, CheckCircle, Clock, Download, ArrowRight } from 'lucide-react';
 
@@ -11,7 +10,7 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="zoom-in" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Admissions</h1>
             <p className="text-xl max-w-3xl mx-auto opacity-90">
@@ -31,7 +30,7 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="0">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <FileText className="h-8 w-8 text-blue-600" />
               </div>
@@ -40,7 +39,7 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
                 Complete our online application form with required documents and personal statements.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="150">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Calendar className="h-8 w-8 text-green-600" />
               </div>
@@ -49,7 +48,7 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
                 Tour our campus and meet with admissions counselors to learn more about our programs.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="300">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="h-8 w-8 text-purple-600" />
               </div>
@@ -58,7 +57,7 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
                 Participate in a student interview and family meeting with our admissions team.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="450">
               <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="h-8 w-8 text-yellow-600" />
               </div>

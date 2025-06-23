@@ -44,28 +44,28 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="0">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
               <div className="text-gray-600">Students</div>
             </div>
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="150">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-green-600" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">95%</div>
               <div className="text-gray-600">School Acceptance</div>
             </div>
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="300">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-purple-600" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">30+</div>
               <div className="text-gray-600">Subjects</div>
             </div>
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="450">
               <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-yellow-600" />
               </div>
@@ -93,14 +93,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
         {/* Section Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div data-aos="fade-up" className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Academic Programs</h2>
             <p className="text-xl text-gray-100 max-w-3xl mx-auto">
               Comprehensive education from kindergarten onward, designed to nurture every student's full potential.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover">
+            <div
+              className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover"
+              data-aos="fade-right"
+            >
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <BookOpen className="h-8 w-8 text-blue-600" />
               </div>
@@ -116,7 +119,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
-            <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover">
+            <div
+              className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Users className="h-8 w-8 text-green-600" />
               </div>
@@ -132,7 +139,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
-            <div className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover">
+            <div
+              className="bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg p-8 card-hover"
+              data-aos="fade-left"
+              data-aos-delay="300"
+            >
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Award className="h-8 w-8 text-purple-600" />
               </div>
