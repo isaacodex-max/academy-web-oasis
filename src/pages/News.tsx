@@ -1,127 +1,192 @@
-
-import React from 'react';
-import { Calendar, User, ArrowRight, Award, Users, BookOpen } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  Calendar,
+  User,
+  ArrowRight,
+  Award,
+  Users,
+  BookOpen,
+} from 'lucide-react';
 
 const News: React.FC = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [showGallery, setShowGallery] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+
   const newsItems = [
     {
       id: 1,
-      title: "Science Fair 2024 Winners Announced",
-      excerpt: "Congratulations to all participants in this year's science fair. Outstanding projects showcased innovation and creativity across all grade levels.",
+      title: "Cultural Festival",
+      excerpt:
+        "Happy Cultural Day to Everyone! Today, we celebrate the rich diversity and vibrant traditions that make our community unique...",
       date: "March 15, 2024",
-      author: "Dr. Emily Carter",
-      category: "Academics",
+      author: "Corp member Isaac",
+      category: "Culture",
       icon: BookOpen,
-      image: "from-blue-500 to-purple-600"
+      image: "lovable-uploads/Cultural.jpg",
+      gallery: [
+        "lovable-uploads/Cultural1.jpg",
+        "lovable-uploads/Cultural2.jpg",
+        "lovable-uploads/Cultural3.jpg",
+        "lovable-uploads/Cultural4.jpg",
+        "lovable-uploads/Cultural5.jpg",
+        "lovable-uploads/Cultural6.jpg",
+        "lovable-uploads/Cultural7.jpg",
+        "lovable-uploads/Cultural8.jpg",
+        "lovable-uploads/Cultural9.jpg",
+        "lovable-uploads/Cultural10.jpg",
+        "lovable-uploads/Cultural11.jpg",
+        "lovable-uploads/Cultural12.jpg",
+        "lovable-uploads/Cultural13.jpg",
+
+      ],
     },
     {
       id: 2,
       title: "Spring Musical Performance: Into the Woods",
-      excerpt: "Our drama club presents 'Into the Woods' - a spectacular performance showcasing student talent and creativity in music and theater.",
+      excerpt:
+        "Our drama club presents 'Into the Woods' - a spectacular performance showcasing student talent and creativity...",
       date: "March 10, 2024",
       author: "Michael Rodriguez",
       category: "Arts",
       icon: Users,
-      image: "from-green-500 to-blue-600"
+      image: "lovable-uploads/3.jpg",
+      gallery: [
+        "lovable-uploads/3.jpg",
+        "lovable-uploads/3.jpg",
+        "lovable-uploads/3.jpg",
+      ],
     },
     {
       id: 3,
       title: "New Merit-Based Scholarship Program Launched",
-      excerpt: "We're excited to announce our new scholarship program for incoming students. Applications are now open through April 30th.",
+      excerpt:
+        "We're excited to announce our new scholarship program for incoming students...",
       date: "March 5, 2024",
       author: "Sarah Johnson",
       category: "Admissions",
       icon: Award,
-      image: "from-yellow-500 to-red-600"
+      image: "from-yellow-500 to-red-600",
     },
     {
       id: 4,
       title: "Math Olympiad Team Takes Regional Championship",
-      excerpt: "Our math team brought home the gold at the regional Math Olympiad competition, advancing to state championships.",
+      excerpt:
+        "Our math team brought home the gold at the regional Math Olympiad competition...",
       date: "February 28, 2024",
       author: "Dr. James Liu",
       category: "Academics",
       icon: Award,
-      image: "from-purple-500 to-pink-600"
+      image: "from-purple-500 to-pink-600",
     },
     {
       id: 5,
       title: "New STEM Lab Facility Opens",
-      excerpt: "State-of-the-art STEM laboratory featuring advanced equipment for physics, chemistry, biology, and engineering projects.",
+      excerpt:
+        "State-of-the-art STEM laboratory featuring advanced equipment for science projects...",
       date: "February 20, 2024",
       author: "Lisa Chen",
       category: "Facilities",
       icon: BookOpen,
-      image: "from-indigo-500 to-purple-600"
+      image: "from-indigo-500 to-purple-600",
     },
     {
       id: 6,
       title: "Student Council Food Drive Exceeds Goal",
-      excerpt: "Thanks to our amazing community, the annual food drive collected over 2,000 items for local families in need.",
+      excerpt:
+        "Thanks to our amazing community, the annual food drive collected over 2,000 items...",
       date: "February 15, 2024",
       author: "Student Council",
       category: "Community",
       icon: Users,
-      image: "from-green-500 to-teal-600"
-    }
+      image: "from-green-500 to-teal-600",
+    },
   ];
 
   const upcomingEvents = [
-    {
-      date: "Mar 25",
-      title: "Open House for Prospective Families",
-      time: "10:00 AM - 2:00 PM"
-    },
-    {
-      date: "Apr 2",
-      title: "Spring Art Exhibition Opening",
-      time: "6:00 PM - 8:00 PM"
-    },
-    {
-      date: "Apr 8",
-      title: "Parent-Teacher Conferences",
-      time: "3:00 PM - 7:00 PM"
-    },
-    {
-      date: "Apr 15",
-      title: "Earth Day Sustainability Fair",
-      time: "9:00 AM - 3:00 PM"
-    },
-    {
-      date: "Apr 22",
-      title: "Spring Sports Banquet",
-      time: "6:00 PM - 9:00 PM"
-    }
+    { date: "Mar 25", title: "Open House for Prospective Families", time: "10:00 AM - 2:00 PM" },
+    { date: "Apr 2", title: "Spring Art Exhibition Opening", time: "6:00 PM - 8:00 PM" },
+    { date: "Apr 8", title: "Parent-Teacher Conferences", time: "3:00 PM - 7:00 PM" },
+    { date: "Apr 15", title: "Earth Day Sustainability Fair", time: "9:00 AM - 3:00 PM" },
+    { date: "Apr 22", title: "Spring Sports Banquet", time: "6:00 PM - 9:00 PM" },
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+    <>
+      {/* Modal Gallery */}
+    {showGallery && (
+  <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+    <div className="bg-white/90 rounded-xl p-6 w-full max-w-7xl relative shadow-2xl">
+      <button
+        onClick={() => setShowGallery(false)}
+        className="absolute top-4 right-4 text-gray-800 hover:text-black text-lg font-semibold z-10"
+      >
+        ✖ Close
+      </button>
+
+      <div className="mt-12 flex overflow-x-auto space-x-6 pb-4">
+        {galleryImages.map((img, index) => (
+          <div
+            key={index}
+            className="w-[600px] h-[400px] flex items-center justify-center rounded-lg flex-shrink-0"
+          >
+            <img
+              src={img}
+              alt={`Gallery ${index + 1}`}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
+
+      {/* Main Content */}
+      <div className="pt-24 min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">News & Events</h1>
             <p className="text-xl max-w-3xl mx-auto opacity-90">
               Stay up to date with the latest news, achievements, and upcoming events at Extensive Academy.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main News Content */}
+        {/* News & Sidebar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* News Section */}
           <div className="lg:col-span-2">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Latest News</h2>
             <div className="space-y-8">
               {newsItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
-                  <article key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex">
-                      <div className={`w-48 bg-gradient-to-br ${item.image} flex-shrink-0 hidden md:flex items-center justify-center`}>
-                        <IconComponent className="h-12 w-12 text-white" />
+                  <article
+                    key={item.id}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  >
+                    <div className="flex flex-col md:flex-row">
+                      {/* Image or Gradient Block */}
+                      <div className="w-full md:w-48 h-56 md:h-auto flex-shrink-0">
+                        {item.image.endsWith('.jpg') || item.image.endsWith('.png') ? (
+                          <img
+                            src={item.image.startsWith('/') ? item.image : `/${item.image}`}
+                            alt={item.title}
+                            className="w-full h-full object-cover rounded-t-md md:rounded-none md:rounded-l-md"
+                          />
+                        ) : (
+                          <div
+                            className={`w-full h-full bg-gradient-to-br ${item.image} flex items-center justify-center`}
+                          >
+                            <IconComponent className="h-12 w-12 text-white" />
+                          </div>
+                        )}
                       </div>
+
+                      {/* Text Content */}
                       <div className="p-6 flex-1">
                         <div className="flex items-center mb-3">
                           <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-3">
@@ -132,19 +197,39 @@ const News: React.FC = () => {
                             {item.date}
                           </div>
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600">
                           {item.title}
                         </h3>
                         <p className="text-gray-600 mb-4">
-                          {item.excerpt}
+                          {expandedId === item.id
+                            ? item.excerpt
+                            : item.excerpt.slice(0, 70) + '...'}
                         </p>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center text-sm text-gray-500">
                             <User className="h-4 w-4 mr-1" />
                             {item.author}
                           </div>
-                          <button className="text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">
-                            Read More
+
+                          {item.gallery && (
+                            <button
+                              onClick={() => {
+                                setGalleryImages(item.gallery);
+                                setShowGallery(true);
+                              }}
+                              className="text-sm text-blue-600 hover:underline mb-2"
+                            >
+                              See More Pictures
+                            </button>
+                          )}
+
+                          <button
+                            onClick={() =>
+                              setExpandedId(expandedId === item.id ? null : item.id)
+                            }
+                            className="text-blue-600 hover:text-blue-800 font-semibold flex items-center"
+                          >
+                            {expandedId === item.id ? 'Read Less' : 'Read More'}
                             <ArrowRight className="ml-1 h-4 w-4" />
                           </button>
                         </div>
@@ -158,12 +243,15 @@ const News: React.FC = () => {
 
           {/* Sidebar */}
           <div className="space-y-8">
-            {/* Upcoming Events */}
+            {/* Events */}
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Upcoming Events</h3>
               <div className="space-y-4">
                 {upcomingEvents.map((event, index) => (
-                  <div key={index} className="flex items-start border-b border-gray-100 pb-4 last:border-b-0 last:pb-0">
+                  <div
+                    key={index}
+                    className="flex items-start border-b border-gray-100 pb-4 last:border-none"
+                  >
                     <div className="bg-blue-100 text-blue-800 rounded-lg p-2 mr-4 text-center min-w-[60px]">
                       <div className="text-xs font-semibold">{event.date.split(' ')[0]}</div>
                       <div className="text-lg font-bold">{event.date.split(' ')[1]}</div>
@@ -175,69 +263,51 @@ const News: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700">
                 View All Events
               </button>
             </div>
 
-            {/* Newsletter Signup */}
+            {/* Newsletter */}
             <div className="bg-gradient-to-br from-purple-600 to-blue-700 text-white rounded-xl p-6">
               <h3 className="text-xl font-bold mb-4">Stay Connected</h3>
               <p className="mb-6 opacity-90">
                 Subscribe to our newsletter for the latest updates and announcements.
               </p>
-              <div className="space-y-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                />
-                <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-2 px-4 rounded-lg font-semibold transition-colors">
-                  Subscribe
-                </button>
-              </div>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-3"
+              />
+              <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-2 px-4 rounded-lg font-semibold">
+                Subscribe
+              </button>
             </div>
 
             {/* Quick Links */}
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors flex items-center">
-                    <ArrowRight className="h-4 w-4 mr-2" />
-                    Academic Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors flex items-center">
-                    <ArrowRight className="h-4 w-4 mr-2" />
-                    Athletics Schedule
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors flex items-center">
-                    <ArrowRight className="h-4 w-4 mr-2" />
-                    Parent Portal
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors flex items-center">
-                    <ArrowRight className="h-4 w-4 mr-2" />
-                    Alumni Network
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors flex items-center">
-                    <ArrowRight className="h-4 w-4 mr-2" />
-                    Employment
-                  </a>
-                </li>
+                {[
+                  'Academic Calendar',
+                  'Athletics Schedule',
+                  'Parent Portal',
+                  'Alumni Network',
+                  'Employment',
+                ].map((text, i) => (
+                  <li key={i}>
+                    <a href="#" className="text-blue-600 hover:text-blue-800 flex items-center">
+                      <ArrowRight className="h-4 w-4 mr-2" />
+                      {text}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

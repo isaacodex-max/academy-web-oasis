@@ -18,6 +18,23 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
     "/lovable-uploads/111.jpg",
     "/lovable-uploads/333.jpg",
   ], []);
+  
+const middleBackgrounds = React.useMemo(() => [
+  "/lovable-uploads/3.jpg",
+    "/lovable-uploads/12.jpg",
+     "/lovable-uploads/22.jpg",
+    "/lovable-uploads/33.jpg",
+    "/lovable-uploads/45.jpg",
+    "/lovable-uploads/67.jpg",
+    "/lovable-uploads/111.jpg",
+    "/lovable-uploads/333.jpg",
+], []);
+
+const getBackgrounds = () => {
+  if (level === 'elementary') return elementaryBackgrounds;
+  if (level === 'middle') return middleBackgrounds;
+  return [];
+};
 
   const getLevelData = () => {
     switch (level) {
@@ -41,7 +58,7 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
             { subject: 'English Language',  },
             { subject: 'Mathematics', },
             { subject: 'Basic Science and Technology', },
-            { subject: 'Prevocasional Studies',  },
+            { subject: 'Prevocational Studies',  },
             { subject: 'National values Education',  },
             { subject: 'Cultural and Creative art',  },
             { subject: 'Christian religious Studies',  },
@@ -72,23 +89,25 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
             { subject: 'English Language',  },
             { subject: 'Mathematics', },
             { subject: 'Basic Science and Technology', },
-            { subject: 'Prevocasional Studies',  },
+            { subject: 'Prevocational Studies',  },
             { subject: 'National values Education',  },
             { subject: 'Cultural and Creative art',  },
             { subject: 'Christian religious Studies',  },
              { subject: 'Computer Studies',  },
               { subject: 'Music',  },
              { subject: 'History', },
+              { subject: 'Lit-in-English', }, 
+              { subject: 'Business Studies', },
              { subject: 'Yoruba language studies',  }
           ]
         };
       case 'high':
         return {
           title: 'High School',
-          subtitle: 'Grades 9-12',
+          subtitle: 'SSS 1-3',
           description: 'College-preparatory curriculum with AP courses, dual enrollment options, and comprehensive college counseling support.',
-          grades: '9-12',
-          students: '450+',
+          grades: '1-3',
+          students: 'In Progress',
           ratio: '18:1',
           features: [
             '25+ AP courses offered',
@@ -102,13 +121,15 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
             { subject: 'English Language',  },
             { subject: 'Mathematics', },
             { subject: 'Basic Science and Technology', },
-            { subject: 'Prevocasional Studies',  },
+            { subject: 'Prevocational Studies',  },
             { subject: 'National values Education',  },
             { subject: 'Cultural and Creative art',  },
             { subject: 'Christian religious Studies',  },
              { subject: 'Computer Studies',  },
               { subject: 'Music',  },
              { subject: 'History', },
+              { subject: 'Lit-in-English', }, 
+              { subject: 'Business Studies', },
              { subject: 'Yoruba language studies',  }
           ]
         };
@@ -145,21 +166,26 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
   // Only use slider for elementary
   const [bgIdx, setBgIdx] = useState(0);
 
-  useEffect(() => {
-    if (level !== 'elementary' || elementaryBackgrounds.length === 0) return;
-    const interval = setInterval(() => {
-      setBgIdx(idx => (idx + 1) % elementaryBackgrounds.length);
-    }, 4000); // Change every 4 seconds
-    return () => clearInterval(interval);
-  }, [level, elementaryBackgrounds.length]);
+useEffect(() => {
+  const images = getBackgrounds();
+  if (images.length === 0) return;
 
-  useEffect(() => {
-    if (level !== 'elementary') return;
-    elementaryBackgrounds.forEach(src => {
-      const img = new window.Image();
-      img.src = src;
-    });
-  }, [level, elementaryBackgrounds]);
+  const interval = setInterval(() => {
+    setBgIdx(prev => (prev + 1) % images.length);
+  }, 4000);
+
+  return () => clearInterval(interval);
+}, [level]);
+
+
+useEffect(() => {
+  const images = getBackgrounds();
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}, [level]);
+
 
   return (
     <div className="min-h-screen pt-20">
@@ -167,18 +193,21 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
       <section
         className={`py-40 ${level === 'elementary' ? 'text-white relative overflow-hidden' : 'bg-gradient-to-r from-blue-600 to-purple-700 text-white'}`}
         style={
-          level === 'elementary'
-            ? {
-                backgroundImage: `url('${elementaryBackgrounds[bgIdx]}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                minHeight: '70vh',
-                transition: 'background-image 3s ease-in-out',
-              }
+           ['elementary', 'middle'].includes(level)
+        ? {
+          backgroundImage: `url('${getBackgrounds()[bgIdx]}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '92vh',
+          transition: 'background-image 3s ease-in-out',
+        }
             : {}
         }
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-0" style={{ display: level === 'elementary' ? 'block' : 'none' }}></div>
+        {/* Overlay for readability */}   
+        {['elementary', 'middle'].includes(level) && (
+  <div className="absolute inset-0 bg-black bg-opacity-40 z-0"></div>
+)}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg tracking-tight animate-fade-in">
