@@ -178,11 +178,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
-                  March 15, 2024
+                  March 28, 2025
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Science Fair 2024 Winners Announced</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Cultural Festival</h3>
                 <p className="text-gray-600 mb-4">
-                  Congratulations to all participants in this year's science fair. Outstanding projects showcased innovation and creativity.
+                  Cultural festivals are vibrant celebrations that showcase the unique traditions, music, dance, and attire of a people. They provide an opportunity...
                 </p>
                 <button 
                   onClick={() => onNavigate('news')}
@@ -197,11 +197,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
-                  March 10, 2024
+                session 2025/2026
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Spring Musical Performance</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Admission</h3>
                 <p className="text-gray-600 mb-4">
-                  Our drama club presents "Into the Woods" - a spectacular performance showcasing student talent and creativity.
+                  Admission is the process of enrolling into a school or institution. We're excited to announce At our school, admission is open from Crèche to JSS3
                 </p>
                 <button 
                   onClick={() => onNavigate('news')}
@@ -216,11 +216,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
-                  March 5, 2024
+                  July, 2024
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Scholarship Program Launched</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Standard Facilities at Extensive Academy</h3>
                 <p className="text-gray-600 mb-4">
-                  New merit-based scholarship program now available for incoming students. Applications open through April.
+                 Our school is well-equipped with modern and essential facilities to ensure a safe and supportive learning environment.
                 </p>
                 <button 
                   onClick={() => onNavigate('news')}
