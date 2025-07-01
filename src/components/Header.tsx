@@ -30,11 +30,11 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
   return (
     <header className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
-            <div className="w-16 h-16 mr-4 flex-shrink-0">
+           <div className="w-12 h-12 sm:w-16 sm:h-16 mr-3 flex-shrink-0">
               <img 
                 src="/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png" 
                 alt="Extensive Academy Logo" 
@@ -42,8 +42,9 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Extensive Academy</h1>
-              <p className="text-sm text-gray-600">Aspiring for Excellence</p>
+                <h1 className="text-lg sm:text-2xl font-bold text-gray-900">Extensive Academy</h1>
+                <p className="text-xs sm:text-sm text-gray-600">Aspiring for Excellence</p>
+
             </div>
           </div>
 

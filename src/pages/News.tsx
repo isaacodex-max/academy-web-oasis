@@ -25,6 +25,10 @@ const News: React.FC = () => {
       icon: BookOpen,
       image: "lovable-uploads/Cultural.jpg",
       gallery: [
+        "lovable-uploads/Cultural8.jpg",
+        "lovable-uploads/Cultural9.jpg",
+        "lovable-uploads/Cultural10.jpg",
+        "lovable-uploads/Cultural11.jpg",
         "lovable-uploads/Cultural1.jpg",
         "lovable-uploads/Cultural2.jpg",
         "lovable-uploads/Cultural3.jpg",
@@ -43,19 +47,15 @@ const News: React.FC = () => {
     },
     {
       id: 2,
-      title: "Spring Musical Performance: Into the Woods",
+      title: "Student Preparation for exams",
       excerpt:
-        "Our drama club presents 'Into the Woods' - a spectacular performance showcasing student talent and creativity...",
-      date: "March 10, 2024",
-      author: "Michael Rodriguez",
-      category: "Arts",
+        "Preparing for exams requires planning and focus. Students should review their notes regularly, practice past questions, and create a study schedule. Taking short breaks, staying healthy, and getting enough sleep also help improve concentration and memory. Starting early and staying consistent leads to better results.y...",
+      date: "JUly 1,2025",
+      author: "Mrs Alonge",
+      category: "Education",
       icon: Users,
       image: "lovable-uploads/3.jpg",
-      gallery: [
-        "lovable-uploads/3.jpg",
-        "lovable-uploads/3.jpg",
-        "lovable-uploads/3.jpg",
-      ],
+    
     },
     {
       id: 3,
@@ -70,14 +70,15 @@ const News: React.FC = () => {
     },
     {
       id: 4,
-      title: "Math Olympiad Team Takes Regional Championship",
+      title: "Summer coaching program",
       excerpt:
-        "Our math team brought home the gold at the regional Math Olympiad competition...",
-      date: "February 28, 2024",
-      author: "Dr. James Liu",
+        "We're excited to announce our new Summer coaching program, designed to help students improve their academic performance, skills, and confidence...Activities:Academic,Outdoor/indoor games,computer lesson, Art and Craft and Vacation,.",
+      
+      date: "August 4, 2025 to 29th August 2025", 
+      author: "Mrs. Ibukun Agbi",
       category: "Academics",
       icon: Award,
-      image: "from-purple-500 to-pink-600",
+      image: "lovable-uploads/SummerCoaching.jpg",
     },
     {
       id: 5,
