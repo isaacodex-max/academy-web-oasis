@@ -79,62 +79,92 @@ const ApplicationForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const formData = {
-      studentName,
-      dob,
-      gender,
-      intendedClass,
-      parentName,
-      parentPhone,
-      parentEmail,
-      previousSchool,
-      lastClass,
-      reasonForLeaving,
-      bloodGroup,
-      genotype,
-      allergies,
-      onMedication,
-      medicationDetails,
-      whyJoin,
-    };
+ 
+   const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const formData = {
+    studentName,
+    dob,
+    gender,
+    intendedClass,
+    parentName,
+    parentPhone,
+    parentEmail,
+    previousSchool,
+    lastClass,
+    reasonForLeaving,
+    bloodGroup,
+    genotype,
+    allergies,
+    onMedication,
+    medicationDetails,
+    whyJoin,
+  };
+
+  try {
     const response = await fetch('https://academy-web-oasis.onrender.com/api/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     });
+
     const result = await response.json();
+
     if (result.success) {
       setSuccess(true);
-      // Optionally clear form fields here
+
+      // ✅ Clear the form fields
+      setStudentName("");
+      setDob("");
+      setGender("");
+      setIntendedClass("");
+      setParentName("");
+      setParentPhone("");
+      setParentEmail("");
+      setPreviousSchool("");
+      setLastClass("");
+      setReasonForLeaving("");
+      setBloodGroup("");
+      setGenotype("");
+      setAllergies("");
+      setOnMedication("");
+      setMedicationDetails("");
+      setWhyJoin("");
+
     } else {
       alert(result.message || "Submission failed.");
     }
-  };
+  } catch (error) {
+    alert("An error occurred. Please try again later.");
+    console.error("Submission error:", error);
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="max-w-2xl mx-auto">
         {/* Letterhead */}
-        <div className="flex items-center gap-6 mb-8 border-b pb-6">
-          <img
-            src="/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png"
-            alt="Extensive Academy Logo"
-            className="w-20 h-20 object-contain"
-          />
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900">Extensive Academy</h1>
-            <div className="text-gray-700">
-              PLOT 15, JESUS AVENUE, OLOGBUN, SIMAWA-LIKOSI ROAD, SHAGAMU, OGUN STATE. Phone: 09065065415, Email:extensiveacademy@gmail.com
-              <span className="italic font-semibold"> Motto: Aspiring for Excellence</span>
-            </div>
-          </div>
-        </div>
+        <div className="flex items-center justify-between mb-8 border-b pb-6 px-4 md:px-8 lg:px-16">
+  <img
+    src="/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png"
+    alt="Extensive Academy Logo"
+    className="w-12 h-12 md:w-20 md:h-20 object-contain"
+  />
+  <div className="flex-1 flex flex-col justify-center max-w-xs md:max-w-none ml-4 text-center">
+    <h1 className="text-lg md:text-2xl font-bold text-gray-900">Extensive Academy</h1>
+    <div className="text-gray-700 text-xs md:text-base">
+      PLOT 15, JESUS AVENUE, OLOGBUN, SIMAWA-LIKOSI ROAD, SHAGAMU, OGUN STATE. Phone: 09065065415, Email:extensiveacademy@gmail.com
+      <span className="italic font-semibold block">Motto: Aspiring for Excellence</span>
+    </div>
+  </div>
+</div>
+
 
         {/* Form Title */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Application Form for Admission</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 px-4 sm:px-6 md:px-0">Application Form for Admission</h2>
           <p className="text-gray-700 mt-2">Academic Session 2025/2026</p>
         </div>
 
@@ -370,11 +400,21 @@ const ApplicationForm: React.FC = () => {
             Submit Application
           </button>
         </form>
-        {success && (
-          <div className="mb-4 p-4 bg-green-100 text-green-800 rounded">
-            Application submitted successfully!
+       {success && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
+              <h2 className="text-xl font-bold text-green-700 mb-4">Success!</h2>
+              <p className="text-gray-700 mb-6">Application submitted successfully.</p>
+              <button
+                onClick={() => setSuccess(false)}
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                OK
+              </button>
+            </div>
           </div>
         )}
+
       </div>
     </div>
   );

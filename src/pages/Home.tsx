@@ -174,7 +174,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600"></div>
+              <img
+                src="lovable-uploads/Cultural11.jpg"
+                alt="Cultural Festival"
+                className="h-48 w-full object-cover"
+              />
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
@@ -193,7 +197,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
             </article>
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
-              <div className="h-48 bg-gradient-to-br from-green-500 to-blue-600"></div>
+              <img
+                  src="lovable-uploads/ab.jpg"
+                  alt="Admission"
+                  className="h-48 w-full object-cover"
+              />
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
@@ -212,7 +220,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
             </article>
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
-              <div className="h-48 bg-gradient-to-br from-yellow-500 to-red-600"></div>
+            <img
+              src="lovable-uploads/Facility3.jpg"
+              alt="Facilities"
+              className="h-48 w-full object-cover"
+            />
+
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />

@@ -20,14 +20,17 @@ const AcademicLevel: React.FC<AcademicLevelProps> = ({ level, onNavigate }) => {
   ], []);
   
 const middleBackgrounds = React.useMemo(() => [
-  "/lovable-uploads/3.jpg",
-    "/lovable-uploads/12.jpg",
-     "/lovable-uploads/22.jpg",
-    "/lovable-uploads/33.jpg",
-    "/lovable-uploads/45.jpg",
-    "/lovable-uploads/67.jpg",
-    "/lovable-uploads/111.jpg",
-    "/lovable-uploads/333.jpg",
+  "/lovable-uploads/Middle.jpg",
+  "/lovable-uploads/Facility11.jpg",
+  "/lovable-uploads/Middle2.jpg",
+  "/lovable-uploads/Middle3.jpg",
+  "/lovable-uploads/Middle4.jpg",
+  "/lovable-uploads/Middle5.jpg",
+  "/lovable-uploads/Middle6.jpg",
+  "/lovable-uploads/Middle7.jpg",
+  "/lovable-uploads/Middle8.jpg",
+  "/lovable-uploads/Middle9.jpg",
+
 ], []);
 
 const getBackgrounds = () => {

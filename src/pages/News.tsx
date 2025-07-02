@@ -116,20 +116,31 @@ const News: React.FC = () => {
       title: "Music Class",
       excerpt:
         "Our music class offers students the opportunity to explore their creativity through sound. With lessons in singing, instrument playing, and basic music theory, students develop rhythm, coordination, and self-expression. The class helps build confidence and a lifelong appreciation for music. Whether students are beginners or have some experience, our music program nurtures their passion and talent in a fun and engaging environment.",
-      date: "February 15, 2024",
+      date: "",
       author: "Student Council",
       category: "Music",
       icon: Users,
-      image: "from-green-500 to-teal-600",
+      image: "lovable-uploads/Music1.jpg",
+       gallery: [
+        "lovable-uploads/Music.jpg",
+        "lovable-uploads/Music1.jpg",
+        "lovable-uploads/Music2.jpg",
+        "lovable-uploads/Music3.jpg",
+        "lovable-uploads/Music4.jpg",
+        "lovable-uploads/Music5.jpg",
+        "lovable-uploads/Music6.jpg",
+        "lovable-uploads/Music7.jpg",
+        "lovable-uploads/Music8.jpg",
+        "lovable-uploads/Music9.jpg",
+      
+      ],
     },
+    
   ];
 
   const upcomingEvents = [
-    { date: "Mar 25", title: "Open House for Prospective Families", time: "10:00 AM - 2:00 PM" },
-    { date: "Apr 2", title: "Spring Art Exhibition Opening", time: "6:00 PM - 8:00 PM" },
-    { date: "Apr 8", title: "Parent-Teacher Conferences", time: "3:00 PM - 7:00 PM" },
-    { date: "Apr 15", title: "Earth Day Sustainability Fair", time: "9:00 AM - 3:00 PM" },
-    { date: "Apr 22", title: "Spring Sports Banquet", time: "6:00 PM - 9:00 PM" },
+    { date: "Aug 5 2025", title: "Summer Coaching", time: "9:00 AM - 1:00 PM" },
+    
   ];
 
   return (
@@ -168,7 +179,7 @@ const News: React.FC = () => {
       <div className="pt-24 min-h-screen bg-gray-50">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in" data-aos-duration="1000">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">News & Events</h1>
             <p className="text-xl max-w-3xl mx-auto opacity-90">
               Stay up to date with the latest news, achievements, and upcoming events at Extensive Academy.
@@ -186,9 +197,11 @@ const News: React.FC = () => {
                 const IconComponent = item.icon;
                 return (
                   <article
-                    key={item.id}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-                  >
+                      key={item.id}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                    >
                     <div className="flex flex-col md:flex-row">
                       {/* Image or Gradient Block */}
                       <div className="w-full md:w-48 h-56 md:h-auto flex-shrink-0">
@@ -284,13 +297,13 @@ const News: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700">
+             {/*} <button className="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700">
                 View All Events
-              </button>
+              </button>*/}
             </div>
 
             {/* Newsletter */}
-            <div className="bg-gradient-to-br from-purple-600 to-blue-700 text-white rounded-xl p-6">
+           {/* <div className="bg-gradient-to-br from-purple-600 to-blue-700 text-white rounded-xl p-6">
               <h3 className="text-xl font-bold mb-4">Stay Connected</h3>
               <p className="mb-6 opacity-90">
                 Subscribe to our newsletter for the latest updates and announcements.
@@ -303,10 +316,10 @@ const News: React.FC = () => {
               <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 py-2 px-4 rounded-lg font-semibold">
                 Subscribe
               </button>
-            </div>
-
+            </div> */}
+ 
             {/* Quick Links */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            {/* <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Quick Links</h3>
               <ul className="space-y-3">
                 {[
@@ -324,7 +337,9 @@ const News: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div>  */}
+            
+          
           </div>
         </div>
       </div>
