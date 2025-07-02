@@ -1,6 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// This helps __dirname work in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
@@ -49,6 +55,12 @@ app.post('/api/apply', async (req, res) => {
   } catch (error) {
     res.status(500).json({ success: false, message: 'Failed to send email.', error });
   }
+});
+// Serve React frontend in production
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.listen(5000, () => console.log('Server running on port 5000'));
