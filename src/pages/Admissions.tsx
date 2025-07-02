@@ -119,13 +119,18 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Download Form</h3>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                <a
+                  href="/ApplicationForm.pdf"
+                  download="ExtensiveAcademy_ApplicationForm.pdf"
+                  className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                  data-aos="fade-up" data-aos-delay="0">
                   <div>
                     <h4 className="font-semibold text-gray-900">Application Form</h4>
                     <p className="text-sm text-gray-600">Complete admission application (PDF)</p>
                   </div>
                   <Download className="h-5 w-5 text-blue-600" />
-                </div>
+                </a>
+
               
              
               </div>

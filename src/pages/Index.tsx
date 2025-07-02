@@ -8,6 +8,8 @@ import Contact from './Contact';
 import Admissions from './Admissions';
 import News from './News';
 import AcademicLevel from './AcademicLevel';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function Index() {
   const [currentPage, setCurrentPage] = useState('home');
