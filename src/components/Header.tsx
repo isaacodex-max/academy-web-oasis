@@ -19,7 +19,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         { id: 'elementary', label: 'Elementary School' },
         { id: 'middle', label: 'Middle School' },
         { id: 'high', label: 'High School' },
-        { id: 'programs', label: 'Special Programs' }
       ]
     },
     { id: 'about', label: 'About Us' },
