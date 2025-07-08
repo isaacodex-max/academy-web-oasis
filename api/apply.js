@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
   const mailOptions = {
     from: form.parentEmail || 'no-reply@extensiveacademy.com',
-    to: 'extensiveacademy@gmail.com', // <-- change this to your desired recipient
+    to: 'extensiveacademy@gmail.com',
     subject: 'New Application Form Submission',
     text: `
       Student Name: ${form.studentName}
