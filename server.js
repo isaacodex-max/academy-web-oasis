@@ -19,15 +19,15 @@ app.post('/api/apply', async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'isaacayomide2019@gmail.com', // school owner's email
-      pass: 'gwwe oldl ecoe opca', // use an app password, not your real password
+      user: 'extensiveacademy@gmail.com', // school owner's email
+      pass: 'zrjq rcxx luuw vdzi', // use an app password, not your real password
     },
   });
 
   // Compose the email
   const mailOptions = {
     from: form.parentEmail || 'no-reply@extensiveacademy.com',
-    to: 'isaacayomide2019@gmail.com', // changed to new recipient email
+    to: 'extensiveacademy@gmail.com', // changed to new recipient email
     subject: 'New Application Form Submission',
     text: `
       Student Name: ${form.studentName}
