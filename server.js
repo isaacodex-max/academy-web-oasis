@@ -1,4 +1,4 @@
-import express from 'express';
+{/*import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
 import path from 'path';
@@ -64,4 +64,4 @@ app.get('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));*/}

@@ -9,6 +9,7 @@ const ApplicationForm: React.FC = () => {
   const [parentName, setParentName] = useState("");
   const [parentPhone, setParentPhone] = useState("");
   const [parentEmail, setParentEmail] = useState("");
+  const [relationship, setRelationship] = useState("");
   const [previousSchool, setPreviousSchool] = useState("");
   const [lastClass, setLastClass] = useState("");
   const [reasonForLeaving, setReasonForLeaving] = useState("");
@@ -19,6 +20,8 @@ const ApplicationForm: React.FC = () => {
   const [medicationDetails, setMedicationDetails] = useState("");
   const [whyJoin, setWhyJoin] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+ 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -74,6 +77,9 @@ const ApplicationForm: React.FC = () => {
       case "whyJoin":
         setWhyJoin(value);
         break;
+        case "relationship": 
+      setRelationship(value);
+      break;
       default:
         break;
     }
@@ -82,7 +88,7 @@ const ApplicationForm: React.FC = () => {
  
    const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
-
+  setLoading(true); 
   const formData = {
     studentName,
     dob,
@@ -91,6 +97,7 @@ const ApplicationForm: React.FC = () => {
     parentName,
     parentPhone,
     parentEmail,
+    relationship,
     previousSchool,
     lastClass,
     reasonForLeaving,
@@ -103,7 +110,7 @@ const ApplicationForm: React.FC = () => {
   };
 
   try {
-    const response = await fetch('https://academy-web-oasis.onrender.com/api/apply', {
+    const response = await fetch('/api/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -122,6 +129,7 @@ const ApplicationForm: React.FC = () => {
       setParentName("");
       setParentPhone("");
       setParentEmail("");
+      setRelationship("");
       setPreviousSchool("");
       setLastClass("");
       setReasonForLeaving("");
@@ -139,6 +147,7 @@ const ApplicationForm: React.FC = () => {
     alert("An error occurred. Please try again later.");
     console.error("Submission error:", error);
   }
+    setLoading(false);
 };
 
 
@@ -257,29 +266,34 @@ const ApplicationForm: React.FC = () => {
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/60"
                 />
               </div>
-              <div className="md:col-span-2 flex items-center gap-4 mt-2">
-                <label className="block text-gray-700 font-medium">Is the child on any medication?</label>
-                <label className="flex items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="onMedication"
-                    value="Yes"
-                    onChange={handleChange}
-                    className="form-checkbox"
-                  />
-                  <span>Yes</span>
-                </label>
-                <label className="flex items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="onMedication"
-                    value="No"
-                    onChange={handleChange}
-                    className="form-checkbox"
-                  />
-                  <span>No</span>
-                </label>
+             <div className="md:col-span-2">
+                <label className="block text-gray-700 font-medium mb-1">Is the child on any medication?</label>
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="radio"
+                      name="onMedication"
+                      value="Yes"
+                      checked={onMedication === "Yes"}
+                      onChange={handleChange}
+                      className="form-radio"
+                    />
+                    <span>Yes</span>
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="radio"
+                      name="onMedication"
+                      value="No"
+                      checked={onMedication === "No"}
+                      onChange={handleChange}
+                      className="form-radio"
+                    />
+                    <span>No</span>
+                  </label>
+                 </div>
               </div>
+
               <div className="md:col-span-2">
                 <label className="block text-gray-700 font-medium mb-1">If yes, explain</label>
                 <input
@@ -299,22 +313,27 @@ const ApplicationForm: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-700 font-medium mb-1">Parent/Guardian Name</label>
-                <input
-                  type="text"
-                  name="parentName"
-                  value={parentName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/60"
-                  required
-                />
+             
+                   <input
+                    type="text"
+                    name="parentName"
+                    value={parentName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/60"
+                    required
+                  />
+
               </div>
               <div>
                 <label className="block text-gray-700 font-medium mb-1">Relationship</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/60"
-                  required
-                />
+                    <input
+                      type="text"
+                      name="relationship"
+                      value={relationship}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white/60"
+                      required
+                    />
               </div>
               <div>
                 <label className="block text-gray-700 font-medium mb-1">Phone Number</label>
@@ -395,10 +414,14 @@ const ApplicationForm: React.FC = () => {
             {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition"
+            disabled={loading}
+            className={`w-full py-3 rounded-lg font-bold transition ${
+              loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 text-white"
+            }`}
           >
-            Submit Application
+            {loading ? "Submitting..." : "Submit Application"}
           </button>
+
         </form>
        {success && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
