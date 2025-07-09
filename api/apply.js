@@ -1,22 +1,21 @@
 // api/apply.js
-/*import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
+if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
-  }
+}
 
-  const form = req.body;
+const form = req.body;
 
-  const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER, // set in Vercel dashboard
       pass: process.env.EMAIL_PASS, // set in Vercel dashboard
-    },
-  });
+    }, });
 
-  const mailOptions = {
+const mailOptions = {
     from: form.parentEmail || 'no-reply@extensiveacademy.com',
     to: 'extensiveacademy@gmail.com',
     subject: 'New Application Form Submission',
@@ -44,4 +43,4 @@ export default async function handler(req, res) {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Application submitted successfully!' }); } catch (error) {
     res.status(500).json({ success: false, message: 'Failed to send email.', error: error.message }); }
-}*?*/
+}

@@ -9,7 +9,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://academy-web-oasis.vercel.app',
+}));
 app.use(express.json());
 
 app.post('/api/apply', async (req, res) => {
@@ -19,9 +21,10 @@ app.post('/api/apply', async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'extensiveacademy@gmail.com', // school owner's email
-      pass: 'zrjq rcxx luuw vdzi', // use an app password, not your real password
-    },
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    }
+
   });
 
   // Compose the email
@@ -53,15 +56,15 @@ app.post('/api/apply', async (req, res) => {
     await transporter.sendMail(mailOptions);
     res.json({ success: true, message: 'Application submitted successfully!' });
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Failed to send email.', error });
+    res.status(500).json({ success: false, message: 'Failed to send email.', error: error.message });
   }
 });
 // Serve React frontend in production
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+/*app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+});*/
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
