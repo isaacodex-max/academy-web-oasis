@@ -110,7 +110,7 @@ const ApplicationForm: React.FC = () => {
   };
 
   try {
-    const response = await fetch('/api/apply', {
+    const response = await fetch('https://academy-web-oasis-ol25.onrender.com/api/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
