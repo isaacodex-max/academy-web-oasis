@@ -16,8 +16,9 @@ const transporter = nodemailer.createTransport({
     }, });
 
 const mailOptions = {
-    from: form.parentEmail || 'no-reply@extensiveacademy.com',
-    to: 'extensiveacademy@gmail.com',
+    from: process.env.EMAIL_USER,
+replyTo: form.parentEmail || 'no-reply@extensiveacademy.com',
+    to: 'isaacayomide2019@gmail.com',
     subject: 'New Application Form Submission',
     text: `
         Student Name: ${form.studentName}
@@ -42,5 +43,6 @@ const mailOptions = {
     }; try {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Application submitted successfully!' }); } catch (error) {
+        console.error('Email send error:', error);
     res.status(500).json({ success: false, message: 'Failed to send email.', error: error.message }); }
 }

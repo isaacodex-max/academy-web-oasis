@@ -3,6 +3,9 @@ import cors from 'cors';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // This helps __dirname work in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -23,14 +26,17 @@ app.post('/api/apply', async (req, res) => {
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
-    }
+    },
+    logger: true,
+    debug: true,
 
   });
 
   // Compose the email
   const mailOptions = {
-    from: form.parentEmail || 'no-reply@extensiveacademy.com',
-    to: 'extensiveacademy@gmail.com', // changed to new recipient email
+    from: process.env.EMAIL_USER,
+    replyTo: form.parentEmail || 'no-reply@extensiveacademy.com',
+    to: 'isaacayomide2019@gmail.com', // changed to new recipient email
     subject: 'New Application Form Submission',
     text: `
       Student Name: ${form.studentName}
@@ -56,8 +62,10 @@ app.post('/api/apply', async (req, res) => {
     await transporter.sendMail(mailOptions);
     res.json({ success: true, message: 'Application submitted successfully!' });
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Failed to send email.', error: error.message });
-  }
+    console.log('Email User:', process.env.EMAIL_USER);
+  console.error('Error sending email:', error);
+  res.status(500).json({ success: false, message: 'Failed to send email.', error: error.message });
+}
 });
 // Serve React frontend in production
 /*app.use(express.static(path.join(__dirname, 'client', 'build')));
