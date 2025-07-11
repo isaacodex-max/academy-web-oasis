@@ -3,11 +3,10 @@ import cors from 'cors';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import 'dotenv/config';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// This helps __dirname work in ES modules
+// Handle __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -17,22 +16,46 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// POST /api/apply
 app.post('/api/apply', async (req, res) => {
   const form = req.body;
 
-  // Configure your email transport (use your real email and password or an app password)
+  // Check for required environment variables
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error('Missing EMAIL_USER or EMAIL_PASS in environment variables');
+    return res.status(500).json({
+      success: false,
+      message: 'Server email configuration is missing',
+    });
+  }
+
+  // Optional: Validate required fields
+  if (!form.studentName || !form.parentEmail) {
+    return res.status(400).json({
+      success: false,
+      message: 'Missing required form fields',
+    });
+  }
+
+  // Create email transporter
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
-    logger: true,
-    debug: true,
-
   });
 
-  // Compose the email
+  // (Optional but useful) Verify email transporter setup
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error('Transporter verification failed:', error);
+    } else {
+      console.log('Email transporter ready:', success);
+    }
+  });
+
+  // Compose email
   const mailOptions = {
     from: process.env.EMAIL_USER,
     replyTo: form.parentEmail || 'no-reply@extensiveacademy.com',
@@ -58,21 +81,28 @@ app.post('/api/apply', async (req, res) => {
     `,
   };
 
+  // Try to send email
   try {
     await transporter.sendMail(mailOptions);
-    res.json({ success: true, message: 'Application submitted successfully!' });
+    res.status(200).json({ success: true, message: 'Application submitted successfully!' });
   } catch (error) {
-    console.log('Email User:', process.env.EMAIL_USER);
-  console.error('Error sending email:', error);
-  res.status(500).json({ success: false, message: 'Failed to send email.', error: error.message });
-}
+    console.error('Error sending email:', error);
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to send email.',
+      error: error.message,
+    });
+  }
 });
-// Serve React frontend in production
-/*app.use(express.static(path.join(__dirname, 'client', 'build')));
 
+// Uncomment this section only if you're serving frontend from backend
+/*
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});*/
+});
+*/
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
