@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, Youtube } from 'lucide-react'; 
+import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,9 @@ const Contact: React.FC = () => {
     message: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -20,8 +22,35 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
+
+    const { name, email, subject, message, phone } = formData;
+
+    // Validate required fields
+    if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
+      alert('Please fill all required fields before sending.');
+      return;
+    }
+
+    const whatsappNumber = '2349065415'; // Use your full international number (without leading zero, no plus sign)
+    const whatsappFullNumber = '2349065065415'; // Your full WhatsApp number (corrected from your input)
+
+    const text = `
+*New Message from Website*
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'N/A'}
+Subject: ${subject}
+Message: ${message}
+    `;
+
+    const encodedText = encodeURIComponent(text);
+    const whatsappURL = `https://wa.me/${whatsappFullNumber}?text=${encodedText}`;
+
+    // Open WhatsApp chat in a new tab
+    window.open(whatsappURL, '_blank');
+
+    // Reset form after opening WhatsApp
     setFormData({
       name: '',
       email: '',
@@ -49,19 +78,24 @@ const Contact: React.FC = () => {
       <section
         className="relative py-16 bg-white overflow-hidden"
         style={{
-          backgroundImage: "url('/lovable-uploads/ab.jpg')", // replace with your image path
+          backgroundImage: "url('/lovable-uploads/ab.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        {/* Optional: Overlay for readability */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+
         {/* Section Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6"data-aos="fade-up" data-aos-delay="50">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-white mb-6" data-aos="fade-up" data-aos-delay="50">
+                Send us a Message
+              </h2>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div data-aos="fade-up" data-aos-delay="100">
@@ -79,6 +113,7 @@ const Contact: React.FC = () => {
                       placeholder="Your full name"
                     />
                   </div>
+
                   <div data-aos="fade-up" data-aos-delay="200">
                     <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                       Email Address *
@@ -95,6 +130,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div data-aos="fade-up" data-aos-delay="50">
                     <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
@@ -107,9 +143,10 @@ const Contact: React.FC = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="(+234) 0905676543"
+                      placeholder="(+234) 09065065415"
                     />
                   </div>
+
                   <div data-aos="fade-up" data-aos-delay="100">
                     <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
                       Subject *
@@ -121,7 +158,7 @@ const Contact: React.FC = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >Youtube
+                    >
                       <option value="">Select a subject</option>
                       <option value="admissions">Admissions Inquiry</option>
                       <option value="general">General Information</option>
@@ -131,6 +168,7 @@ const Contact: React.FC = () => {
                     </select>
                   </div>
                 </div>
+
                 <div data-aos="fade-up" data-aos-delay="50">
                   <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                     Message *
@@ -146,7 +184,10 @@ const Contact: React.FC = () => {
                     placeholder="Please share your message or questions..."
                   ></textarea>
                 </div>
-                <button data-aos="fade-up" data-aos-delay="50"
+
+                <button
+                  data-aos="fade-up"
+                  data-aos-delay="50"
                   type="submit"
                   className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center"
                 >
@@ -157,7 +198,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Contact Details */}
-            <div  data-aos="fade-up" data-aos-delay="0" >
+            <div data-aos="fade-up" data-aos-delay="0">
               <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
               <div className="space-y-8">
                 <div className="flex items-start">
@@ -174,7 +215,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start"data-aos="fade-up" data-aos-delay="100" >
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="100">
                   <div className="bg-green-100 p-3 rounded-lg mr-4">
                     <Phone className="h-6 w-6 text-green-600" />
                   </div>
@@ -182,13 +223,12 @@ const Contact: React.FC = () => {
                     <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
                     <p className="text-white">
                       Main Office: +2348058594710<br />
-                      Admissions: +2347039404364<br />
-                
+                      Admissions: +2347039404364
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start"data-aos="fade-up" data-aos-delay="200">
+                <div className="flex items-start" data-aos="fade-up" data-aos-delay="200">
                   <div className="bg-purple-100 p-3 rounded-lg mr-4">
                     <Mail className="h-6 w-6 text-purple-600" />
                   </div>
@@ -210,29 +250,30 @@ const Contact: React.FC = () => {
                     <h3 className="text-lg font-semibold text-white mb-2">Office Hours</h3>
                     <p className="text-white">
                       Monday - Friday: 8:00 AM - 5:00 PM<br />
-                      Saturday:Closed<br />
+                      Saturday: Closed<br />
                       Sunday: Closed
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Map placeholder */}
+              {/* Map */}
               <div className="mt-8" data-aos="fade-up" data-aos-delay="100">
-                <div className="rounded-lg overflow-hidden shadow-lg" style={{ height: "256px" }}>
+                <div className="rounded-lg overflow-hidden shadow-lg" style={{ height: '256px' }}>
                   <iframe
                     title="Extensive Academy Location"
                     src="https://www.google.com/maps?q=PLOT+15,+JESUS+AVENUE,OLOGBUN,SIMAWA-LIKOSI+ROAD,+SHAGAMU,OGUN+STATE&output=embed"
                     width="100%"
                     height="256"
                     style={{ border: 0 }}
-                    allowFullScreen={true}
+                    allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

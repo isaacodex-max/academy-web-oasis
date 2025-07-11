@@ -229,7 +229,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
-                  July, 2024
+                  July, 2025
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Standard Facilities at Extensive Academy</h3>
                 <p className="text-gray-600 mb-4">
