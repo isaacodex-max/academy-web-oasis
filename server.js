@@ -36,7 +36,7 @@ app.post('/api/apply', async (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     replyTo: form.parentEmail || 'no-reply@extensiveacademy.com',
-    to: 'isaacayomide2019@gmail.com', // changed to new recipient email
+    to: 'isaacayomide2019@gmail.com',
     subject: 'New Application Form Submission',
     text: `
       Student Name: ${form.studentName}
