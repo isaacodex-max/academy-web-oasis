@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from "react-helmet";
 import {
   Calendar,
   User,
@@ -145,6 +146,22 @@ const News: React.FC = () => {
 
   return (
     <>
+    <Helmet>
+      <title>News & Events | Extensive Academy</title>
+      <meta
+        name="description"
+        content="Stay updated with the latest news, events, and announcements from Extensive Academy, including cultural celebrations, academic updates, and facilities."
+      />
+      <meta property="og:title" content="News & Events | Extensive Academy" />
+      <meta
+        property="og:description"
+        content="Explore updates from Extensive Academy – cultural events, summer programs, music classes, and more."
+      />
+      <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/Cultural11.jpg" />
+      <meta property="og:url" content="https://www.extensiveacademy.org/news" />
+      <meta name="twitter:card" content="summary_large_image" />
+    </Helmet>
+
       {/* Modal Gallery */}
     {showGallery && (
   <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4">

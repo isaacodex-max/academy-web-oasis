@@ -187,9 +187,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
               <img
-                src="src=https://www.extensiveacademy.org/lovable-uploads/Cultural11.jpg"
+                src="/lovable-uploads/Cultural11.jpg"
                 alt="Cultural Festival"
                 className="h-48 w-full object-cover"
+                loading="lazy"
               />
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
@@ -210,14 +211,16 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </article>
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
               <img
-                  src="lovable-uploads/ab.jpg"
+                  src="/lovable-uploads/ab.jpg"
                   alt="Admission"
                   className="h-48 w-full object-cover"
+                  loading="lazy"
               />
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
-                session 2025/2026
+                  <span>Session 2025/2026</span>
+
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Admission</h3>
                 <p className="text-gray-600 mb-4">
@@ -233,9 +236,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </article>
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
             <img
-              src="lovable-uploads/Facility3.jpg"
+              src="/lovable-uploads/Facility3.jpg"
               alt="Facilities"
               className="h-48 w-full object-cover"
+              loading="lazy"
             />
 
               <div className="p-6">

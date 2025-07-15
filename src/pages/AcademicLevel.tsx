@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Users, Award, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import TypewriterWord from '../components/TypewriterWord'; // adjust path if needed
+import { Helmet } from "react-helmet";
 
 interface AcademicLevelProps {
   level: 'elementary' | 'middle' | 'high' | 'programs';
@@ -190,6 +191,16 @@ useEffect(() => {
 
   return (
     <div className="relative z-30 w-full px-0">
+      <Helmet>
+        <title>{`${data.title} | Extensive Academy`}</title>
+        <meta name="description" content={data.description} />
+        <meta property="og:title" content={`${data.title} | Extensive Academy`} />
+        <meta property="og:description" content={data.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://www.extensiveacademy.org/academics/${level}`} />
+        <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/3.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
 
       {/* Hero Section */}
      <section
