@@ -31,8 +31,8 @@ const Contact: React.FC = () => {
       return;
     }
 
-    const whatsappNumber = '2349065415'; // Use your full international number (without leading zero, no plus sign)
-    const whatsappFullNumber = '2349065065415'; // Your full WhatsApp number (corrected from your input)
+    const whatsappNumber = '2348054710'; // Use your full international number (without leading zero, no plus sign)
+    const whatsappFullNumber = '2348058594710'; // Your full WhatsApp number (corrected from your input)
 
     const text = `
 *New Message from Website*
@@ -143,7 +143,7 @@ Message: ${message}
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="(+234) 09065065415"
+                      placeholder="(+234) 09065065515"
                     />
                   </div>
 

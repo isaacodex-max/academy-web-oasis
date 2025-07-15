@@ -48,61 +48,65 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {menuItems.map((item) => (
-              <div key={item.id} className="relative group">
-                {item.submenu ? (
-                  <div>
-                    <button
-                      className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                        currentPage.includes('academics') || item.submenu.some(sub => sub.id === currentPage)
-                          ? 'text-green-600'
-                          : 'text-gray-700 hover:text-green-600'
-                      }`}
-                      onMouseEnter={() => setIsAcademicsOpen(true)}
-                    >
-                      {item.label}
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    </button>
-                    {isAcademicsOpen && (
-                      <div 
-                        className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200"
-                        onMouseLeave={() => setIsAcademicsOpen(false)}
-                      >
-                        {item.submenu.map((subItem) => (
-                          <button
-                            key={subItem.id}
-                            onClick={() => {
-                              onNavigate(subItem.id);
-                              setIsAcademicsOpen(false);
-                            }}
-                            className={`block w-full text-left px-4 py-2 text-sm transition-colors duration-200 ${
-                              currentPage === subItem.id
-                                ? 'text-green-600 bg-green-50'
-                                : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
-                            }`}
-                          >
-                            {subItem.label}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => onNavigate(item.id)}
-                    className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                      currentPage === item.id
-                        ? 'text-green-600'
-                        : 'text-gray-700 hover:text-green-600'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                )}
-              </div>
-            ))}
-          </nav>
+         <nav className="hidden md:flex space-x-8">
+  {menuItems.map((item) => {
+    const isActive = currentPage === item.id || (item.submenu && item.submenu.some(sub => sub.id === currentPage));
+    
+    if (item.submenu) {
+      return (
+        <div
+          key={item.id}
+          className="relative"
+          onMouseEnter={() => setIsAcademicsOpen(true)}
+          onMouseLeave={() => setIsAcademicsOpen(false)}
+        >
+          <button
+            className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+              isActive ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+            }`}
+          >
+            {item.label}
+            <ChevronDown className="ml-1 h-4 w-4" />
+          </button>
+
+          {isAcademicsOpen && (
+            <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200">
+              {item.submenu.map((subItem) => (
+                <button
+                  key={subItem.id}
+                  onClick={() => {
+                    onNavigate(subItem.id);
+                    setIsAcademicsOpen(false);
+                  }}
+                  className={`block w-full text-left px-4 py-2 text-sm transition-colors duration-200 ${
+                    currentPage === subItem.id
+                      ? 'text-green-600 bg-green-50'
+                      : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {subItem.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <button
+        key={item.id}
+        onClick={() => onNavigate(item.id)}
+        className={`px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+          isActive ? 'text-green-600' : 'text-gray-700 hover:text-green-600'
+        }`}
+      >
+        {item.label}
+      </button>
+    );
+  })}
+</nav>
+
 
           {/* Mobile menu button */}
           <button

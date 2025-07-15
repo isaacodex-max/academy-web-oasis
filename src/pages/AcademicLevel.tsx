@@ -123,17 +123,12 @@ const getBackgrounds = () => {
            curriculum: [
             { subject: 'English Language',  },
             { subject: 'Mathematics', },
-            { subject: 'Basic Science and Technology', },
-            { subject: 'Prevocational Studies',  },
-            { subject: 'National values Education',  },
-            { subject: 'Cultural and Creative art',  },
-            { subject: 'Christian religious Studies',  },
-             { subject: 'Computer Studies',  },
-              { subject: 'Music',  },
-             { subject: 'History', },
-              { subject: 'Lit-in-English', }, 
-              { subject: 'Business Studies', },
-             { subject: 'Yoruba language studies',  }
+            { subject: 'IN PROGRESS', },
+            { subject: 'IN PROGRESS', },
+            { subject: 'IN PROGRESS', },
+            { subject: 'IN PROGRESS', },
+            { subject: 'IN PROGRESS', },
+            { subject: 'IN PROGRESS', },
           ]
         };
       default:
@@ -169,7 +164,10 @@ const getBackgrounds = () => {
   // Only use slider for elementary
   const [bgIdx, setBgIdx] = useState(0);
 
+// Rotate background every 4 seconds for elementary or middle
 useEffect(() => {
+  if (!['elementary', 'middle'].includes(level)) return;
+
   const images = getBackgrounds();
   if (images.length === 0) return;
 
@@ -180,7 +178,7 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, [level]);
 
-
+// Preload images on mount or when level changes
 useEffect(() => {
   const images = getBackgrounds();
   images.forEach(src => {
@@ -191,40 +189,51 @@ useEffect(() => {
 
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="relative z-30 w-full px-0">
+
       {/* Hero Section */}
-      <section
-        className={`py-40 ${level === 'elementary' ? 'text-white relative overflow-hidden' : 'bg-gradient-to-r from-blue-600 to-purple-700 text-white'}`}
-        style={
-           ['elementary', 'middle'].includes(level)
-        ? {
-          backgroundImage: `url('${getBackgrounds()[bgIdx]}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '92vh',
-          transition: 'background-image 3s ease-in-out',
-        }
-            : {}
-        }
-      >
-        {/* Overlay for readability */}   
-        {['elementary', 'middle'].includes(level) && (
-  <div className="absolute inset-0 bg-black bg-opacity-40 z-0"></div>
-)}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg tracking-tight animate-fade-in">
-              {data.title}
-            </h1>
-            <p className="text-2xl md:text-3xl mb-6 opacity-95 font-semibold drop-shadow-md animate-fade-in">
-              {data.subtitle}
-            </p>
-            <p className="text-xl max-w-3xl mx-auto opacity-95 font-medium drop-shadow animate-fade-in">
-              {data.description}
-            </p>
-          </div>
-        </div>
-      </section>
+     <section
+  className={`relative ${
+    ['elementary', 'middle'].includes(level)
+      ? 'text-white overflow-hidden'
+      : 'bg-gradient-to-r from-blue-600 to-purple-700 text-white'
+  }`}
+  style={{ minHeight: '120vh' }}
+>
+  {['elementary', 'middle'].includes(level) && (
+    <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-black">
+      {getBackgrounds().map((src, index) => (
+        <img
+          key={index}
+          src={src}
+          loading="eager"
+          alt=""
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+            index === bgIdx
+              ? 'opacity-100 translate-x-0 z-10'
+              : 'opacity-0 -translate-x-full z-0'
+          }`}
+          style={{ transitionProperty: 'opacity, transform' }}
+        />
+      ))}
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-gray-800 bg-opacity-50 z-20" />
+    </div>
+  )}
+
+  <div className="relative z-30 w-full px-4 sm:px-6 lg:px-8 pt-48 pb-24 text-center">
+    <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg tracking-tight animate-fade-in">
+      {data.title}
+    </h1>
+    <p className="text-2xl md:text-3xl mb-6 opacity-95 font-semibold drop-shadow-md animate-fade-in">
+      {data.subtitle}
+    </p>
+    <p className="text-xl max-w-3xl mx-auto opacity-95 font-medium drop-shadow animate-fade-in">
+      {data.description}
+    </p>
+  </div>
+</section>
+
 
       {/* Stats Section */}
       <section className="py-16 bg-white">

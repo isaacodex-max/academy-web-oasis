@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
+interface FooterProps {
+  currentPage: string;
+  onNavigate: (page: string) => void;
+}
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -12,9 +15,9 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 mr-3">
-                <img 
-                  src="/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png" 
-                  alt="Extensive Academy Logo" 
+                <img
+                  src="/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png"
+                  alt="Extensive Academy Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -39,19 +42,19 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link>
+                <button onClick={() => onNavigate('about')} className="text-gray-300 hover:text-white transition-colors">About Us</button>
               </li>
               <li>
-                <Link to="/academics" className="text-gray-300 hover:text-white transition-colors">Academics</Link>
+                <button onClick={() => onNavigate('academics')} className="text-gray-300 hover:text-white transition-colors">Academics</button>
               </li>
               <li>
-                <Link to="/admissions" className="text-gray-300 hover:text-white transition-colors">Admissions</Link>
+                <button onClick={() => onNavigate('admissions')} className="text-gray-300 hover:text-white transition-colors">Admissions</button>
               </li>
               <li>
-                <Link to="/news" className="text-gray-300 hover:text-white transition-colors">News & Events</Link>
+                <button onClick={() => onNavigate('news')} className="text-gray-300 hover:text-white transition-colors">News & Events</button>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link>
+                <button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors">Contact</button>
               </li>
             </ul>
           </div>
@@ -63,7 +66,7 @@ const Footer: React.FC = () => {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300 text-sm">Plot 15,Jesus Avenue, Ologbun, Simawa-Likosi Road,  </p>
+                  <p className="text-gray-300 text-sm">Plot 15, Jesus Avenue, Ologbun, Simawa-Likosi Road,</p>
                   <p className="text-gray-300 text-sm">Shagamu, Ogun State</p>
                 </div>
               </div>
