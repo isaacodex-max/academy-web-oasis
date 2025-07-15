@@ -10,10 +10,22 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
+const allowedOrigins = [
+  'https://academy-web-oasis.vercel.app',
+  'https://www.extensiveacademy.org',
+];
+
 app.use(cors({
-  origin: 'https://academy-web-oasis.vercel.app',
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // Allow non-browser requests like Postman
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `The CORS policy for this site does not allow access from the origin ${origin}.`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
 }));
+
 app.use(express.json());
 
 // POST /api/apply
