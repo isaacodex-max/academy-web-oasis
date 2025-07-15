@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   currentPage: string;

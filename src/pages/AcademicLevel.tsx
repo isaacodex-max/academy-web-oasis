@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BookOpen, Users, Award, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import TypewriterWord from '../components/TypewriterWord'; // adjust path if needed
 import { Helmet } from "react-helmet";
+import Loader from '@/components/Loader';
 
 interface AcademicLevelProps {
   level: 'elementary' | 'middle' | 'high' | 'programs';
@@ -164,6 +165,8 @@ const getBackgrounds = () => {
 
   // Only use slider for elementary
   const [bgIdx, setBgIdx] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [startTime] = useState(Date.now());
 
 // Rotate background every 4 seconds for elementary or middle
 useEffect(() => {
@@ -182,11 +185,35 @@ useEffect(() => {
 // Preload images on mount or when level changes
 useEffect(() => {
   const images = getBackgrounds();
+  let loadedCount = 0;
+
+  const handleImageLoad = () => {
+    loadedCount++;
+    if (loadedCount === images.length) {
+      const elapsed = Date.now() - startTime;
+      const minimumDuration = 1500; // 1.5 seconds
+      const remainingTime = Math.max(minimumDuration - elapsed, 0);
+
+      setTimeout(() => {
+        setLoading(false);
+      }, remainingTime);
+    }
+  };
+
+  if (images.length === 0) {
+    setLoading(false);
+    return;
+  }
+
   images.forEach(src => {
     const img = new Image();
     img.src = src;
+    img.onload = handleImageLoad;
+    img.onerror = handleImageLoad;
   });
-}, [level]);
+}, [level, startTime]);
+
+if (loading) return <Loader />;
 
 
   return (

@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Loader from '@/components/Loader';
 
 import { ArrowRight, Users, Award, BookOpen, Calendar, Star, Play } from 'lucide-react';
 
@@ -8,6 +9,22 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+  const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1000); // simulate 1-second load time
+  return () => clearTimeout(timer);
+}, []);
+if (loading) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <Loader />
+    </div>
+  );
+}
+
   return (
     <div className="min-h-screen">
       <Helmet>

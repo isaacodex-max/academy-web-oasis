@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Loader from '@/components/Loader';
 import { Calendar, FileText, Users, DollarSign, CheckCircle, Clock, Download, ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom"; // Make sure this import is at the top
 
 interface AdmissionsProps {
   onNavigate: (page: string) => void;
 }
+  const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
+  const [loading, setLoading] = useState(true);
 
-const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
+  useEffect(() => {
+    // Simulate a delay (1 second)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  if (loading) return <Loader />;
+
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}

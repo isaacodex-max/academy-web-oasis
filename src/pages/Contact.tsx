@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Loader from '@/components/Loader';
 import { Helmet } from 'react-helmet';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
-const Contact: React.FC = () => {
+ const Contact: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +14,12 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+if (loading) return <Loader />;
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -29,6 +38,7 @@ const Contact: React.FC = () => {
     // Validate required fields
     if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
       alert('Please fill all required fields before sending.');
+      
       return;
     }
     
@@ -61,6 +71,7 @@ Message: ${message}
       message: ''
     });
   };
+
 
   return (
     <div className="min-h-screen pt-20">

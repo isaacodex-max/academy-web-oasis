@@ -1,8 +1,20 @@
 import { Helmet } from 'react-helmet';
-import React from 'react';
 import { Users, Award, BookOpen, Heart, Target, Eye } from 'lucide-react';
+import Loader from '@/components/Loader'; 
+import React, { useState, useEffect } from 'react';
 
 const About: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 2000); // You can adjust the delay (ms)
+  return () => clearTimeout(timer);
+}, []);
+
+if (loading) return <Loader />;
+
   return (
     <div className="min-h-screen pt-20">
       <Helmet>

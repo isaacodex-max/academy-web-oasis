@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Loader from '@/components/Loader'; 
 import { Helmet } from "react-helmet";
 import {
   Calendar,
@@ -10,11 +11,20 @@ import {
 } from 'lucide-react';
 
 const News: React.FC = () => {
+  const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [showGallery, setShowGallery] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1000); // 1 second delay
 
-  const newsItems = [
+  return () => clearTimeout(timer);
+}, []);
+
+
+  const newsItems = [ 
     {
       id: 1,
       title: "Cultural Festival",
@@ -143,6 +153,13 @@ const News: React.FC = () => {
     { date: "Aug 5 2025", title: "Summer Coaching", time: "9:00 AM - 1:00 PM" },
     
   ];
+if (loading) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  );
+}
 
   return (
     <>
