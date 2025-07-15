@@ -9,7 +9,7 @@ dotenv.config();
 // Handle __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const app = express();
 const allowedOrigins = [
   'https://academy-web-oasis.vercel.app',
   'https://www.extensiveacademy.org',
@@ -25,6 +25,7 @@ app.use(cors({
     return callback(null, true);
   },
 }));
+app.options('*', cors());
 
 app.use(express.json());
 
