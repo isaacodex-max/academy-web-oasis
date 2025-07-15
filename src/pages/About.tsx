@@ -1,9 +1,25 @@
+import { Helmet } from 'react-helmet';
 import React from 'react';
 import { Users, Award, BookOpen, Heart, Target, Eye } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>About Us | Extensive Academy</title>
+        <meta name="description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
+        <meta name="keywords" content="Extensive Academy, About, Education, Vision, Mission, History, Nigeria" />
+        <meta property="og:title" content="About Us | Extensive Academy" />
+        <meta property="og:description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.extensiveacademy.org/about" />
+        <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us | Extensive Academy" />
+        <meta name="twitter:description" content="Discover Extensive Academy's mission, vision, and values." />
+        <meta name="twitter:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
         <div data-aos="zoom-in"className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

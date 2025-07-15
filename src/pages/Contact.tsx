@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
@@ -30,6 +31,7 @@ const Contact: React.FC = () => {
       alert('Please fill all required fields before sending.');
       return;
     }
+    
 
     const whatsappNumber = '2348054710'; // Use your full international number (without leading zero, no plus sign)
     const whatsappFullNumber = '2348058594710'; // Your full WhatsApp number (corrected from your input)
@@ -62,6 +64,21 @@ Message: ${message}
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>Contact Us | Extensive Academy</title>
+        <meta name="description" content="Get in touch with Extensive Academy for inquiries about admissions, programs, or scheduling a visit to our campus." />
+        <meta name="keywords" content="Extensive Academy, contact, admissions, Nigeria, school phone number" />
+        <meta property="og:title" content="Contact Us | Extensive Academy" />
+        <meta property="og:description" content="Reach out to Extensive Academy via phone, email, or WhatsApp. We’re happy to assist with any inquiries or support you need." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.extensiveacademy.org/contact" />
+        <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/ab.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | Extensive Academy" />
+        <meta name="twitter:description" content="Reach out to Extensive Academy via phone, email, or WhatsApp." />
+        <meta name="twitter:image" content="https://www.extensiveacademy.org/lovable-uploads/ab.jpg" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-900 to-green-500 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

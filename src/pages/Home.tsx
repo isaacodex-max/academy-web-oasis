@@ -1,4 +1,6 @@
+import { Helmet } from 'react-helmet';
 import React from 'react';
+
 import { ArrowRight, Users, Award, BookOpen, Calendar, Star, Play } from 'lucide-react';
 
 interface HomeProps {
@@ -8,6 +10,16 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Welcome to Extensive Academy | Empowering Learners</title>
+        <meta name="description" content="Extensive Academy: Empowering students from Crèche to High School with world-class education and facilities." />
+        <meta property="og:title" content="Welcome to Extensive Academy" />
+        <meta property="og:description" content="Empowering students with top-tier education, state-of-the-art facilities, and inspiring programs." />
+        <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/ab.jpg" />
+        <meta property="og:url" content="https://www.extensiveacademy.org/" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="hero-gradient text-white py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
@@ -175,7 +187,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
               <img
-                src="lovable-uploads/Cultural11.jpg"
+                src="src=https://www.extensiveacademy.org/lovable-uploads/Cultural11.jpg"
                 alt="Cultural Festival"
                 className="h-48 w-full object-cover"
               />
