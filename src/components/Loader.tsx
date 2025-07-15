@@ -5,7 +5,7 @@ const Loader = () => {
     <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col items-center justify-center">
       {/* Logo or image */}
       <img
-        src="/public/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png" // Change this to your actual logo path
+        src="https://www.extensiveacademy.org/lovable-uploads/97f18681-df52-4541-94d7-c7f23019c06d.png"
         alt="Loading..."
         className="w-30 h-30 animate-pulse mb-8"
       />
