@@ -89,23 +89,24 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Academic Records</h4>
-                    <p className="text-gray-600">Transcripts from previous schools (last 2 years)</p>
+                    <p className="text-gray-600">Student's Report card  from previous school </p>
                   </div>
                 </div>
+                {/*
                 <div className="flex items-start" data-aos="fade-up" data-aos-delay="200">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Teacher Recommendations</h4>
-                    <p className="text-gray-600">Two letters from current or recent teachers</p>
+                    <h4 className="font-semibold text-gray-900 mb-2"></h4>
+                    <p className="text-gray-600"></p>
                   </div>
                 </div>
                 <div className="flex items-start" data-aos="fade-up" data-aos-delay="300">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Student Essay</h4>
-                    <p className="text-gray-600">Personal statement about interests and goals</p>
+                    <h4 className="font-semibold text-gray-900 mb-2">y</h4>
+                    <p className="text-gray-600"></p>
                   </div>
-                </div>
+                </div>*/}
                 <div className="flex items-start" data-aos="fade-up" data-aos-delay="400">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-1 mr-4 flex-shrink-0" />
                   <div>
@@ -160,10 +161,10 @@ const Admissions: React.FC<AdmissionsProps> = ({ onNavigate }) => {
             >
               Schedule a Visit
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center">
+           {/* <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center">
               Start Application
               <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
