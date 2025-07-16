@@ -11,6 +11,7 @@ import ApplicationForm from "./pages/ApplicationForm";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PageWrapper from "./components/PageWrapper";
+import Thankyou from "./pages/Thankyou";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/apply" element={<PageWrapper><ApplicationForm /></PageWrapper>} />
             <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+            <Route path="/thankyou" element={<PageWrapper><Thankyou /></PageWrapper>} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
