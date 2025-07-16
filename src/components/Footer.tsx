@@ -10,9 +10,9 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* School Info */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 mr-3">
                 <img
@@ -22,11 +22,11 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">Extensive Academy</h3>
-                <p className="text-gray-400 text-sm">Aspiring for Excellence</p>
+                <h3 className="text-lg md:text-xl font-bold">Extensive Academy</h3>
+                <p className="text-gray-400 text-sm md:text-base">Aspiring for Excellence</p>
               </div>
             </div>
-            <p className="text-gray-300 mb-4 max-w-md">
+            <p className="text-gray-300 text-sm md:text-base mb-4 max-w-md">
               Providing quality education from elementary through high school, preparing students for success in college and beyond.
             </p>
             <div className="flex space-x-4">
@@ -39,32 +39,22 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-base md:text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
-                <button onClick={() => onNavigate('about')} className="text-gray-300 hover:text-white transition-colors">About Us</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('academics')} className="text-gray-300 hover:text-white transition-colors">Academics</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('admissions')} className="text-gray-300 hover:text-white transition-colors">Admissions</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('news')} className="text-gray-300 hover:text-white transition-colors">News & Events</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors">Contact</button>
-              </li>
+              <li><button onClick={() => onNavigate('about')} className="text-gray-300 hover:text-white transition-colors">About Us</button></li>
+              <li><button onClick={() => onNavigate('academics')} className="text-gray-300 hover:text-white transition-colors">Academics</button></li>
+              <li><button onClick={() => onNavigate('admissions')} className="text-gray-300 hover:text-white transition-colors">Admissions</button></li>
+              <li><button onClick={() => onNavigate('news')} className="text-gray-300 hover:text-white transition-colors">News & Events</button></li>
+              <li><button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors">Contact</button></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <h4 className="text-base md:text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-3">
               <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <MapPin className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300 text-sm">Plot 15, Jesus Avenue, Ologbun, Simawa-Likosi Road,</p>
                   <p className="text-gray-300 text-sm">Shagamu, Ogun State</p>
@@ -82,7 +72,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+        <div className="border-t border-gray-800 mt-10 pt-8 text-center">
           <p className="text-gray-400 text-sm">
             © 2025 Extensive Academy. All rights reserved. | Privacy Policy | Terms of Service
           </p>

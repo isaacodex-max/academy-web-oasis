@@ -205,6 +205,8 @@ if (loading) {
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
               <img
                 src="/lovable-uploads/Cultural11.jpg"
+                  width="380"
+                  height="285"
                 alt="Cultural Festival"
                 className="h-48 w-full object-cover"
                 loading="lazy"
