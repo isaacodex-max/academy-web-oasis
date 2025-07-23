@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Users, Award, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import TypewriterWord from '../components/TypewriterWord'; // adjust path if needed
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Loader from '@/components/Loader';
 
 interface AcademicLevelProps {
@@ -218,6 +218,7 @@ if (loading) return <Loader />;
 
   return (
     <div className="relative z-30 w-full px-0">
+      <HelmetProvider>
       <Helmet>
         <title>{`${data.title} | Extensive Academy`}</title>
         <meta name="description" content={data.description} />
@@ -228,6 +229,7 @@ if (loading) return <Loader />;
         <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/3.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      </HelmetProvider>
 
       {/* Hero Section */}
      <section

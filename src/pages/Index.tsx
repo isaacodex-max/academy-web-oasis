@@ -50,7 +50,7 @@ function Index() {
       <main>
         {renderPage()}
       </main>
-      <Footer />
+      <Footer/>
     </div>
   );
 }

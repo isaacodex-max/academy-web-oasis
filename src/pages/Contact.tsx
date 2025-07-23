@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '@/components/Loader';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
  const Contact: React.FC = () => {
@@ -75,6 +75,7 @@ Message: ${message}
 
   return (
     <div className="min-h-screen pt-20">
+      <HelmetProvider>
       <Helmet>
         <title>Contact Us | Extensive Academy</title>
         <meta name="description" content="Get in touch with Extensive Academy for inquiries about admissions, programs, or scheduling a visit to our campus." />
@@ -89,6 +90,7 @@ Message: ${message}
         <meta name="twitter:description" content="Reach out to Extensive Academy via phone, email, or WhatsApp." />
         <meta name="twitter:image" content="https://www.extensiveacademy.org/lovable-uploads/ab.jpg" />
       </Helmet>
+      </HelmetProvider>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-900 to-green-500 text-white py-16">

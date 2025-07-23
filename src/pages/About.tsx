@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Users, Award, BookOpen, Heart, Target, Eye } from 'lucide-react';
 import Loader from '@/components/Loader'; 
 import React, { useState, useEffect } from 'react';
@@ -17,7 +17,9 @@ if (loading) return <Loader />;
 
   return (
     <div className="min-h-screen pt-20">
-      <Helmet>
+      
+      <HelmetProvider>
+         <Helmet>
         <title>About Us | Extensive Academy</title>
         <meta name="description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
         <meta name="keywords" content="Extensive Academy, About, Education, Vision, Mission, History, Nigeria" />
@@ -31,6 +33,7 @@ if (loading) return <Loader />;
         <meta name="twitter:description" content="Discover Extensive Academy's mission, vision, and values." />
         <meta name="twitter:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
       </Helmet>
+      </HelmetProvider>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
@@ -119,16 +122,24 @@ if (loading) return <Loader />;
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Founded in 29th June,2019. Extensive Academy began as a small private school with a vision to provide exceptional education in a nurturing environment. Over the past four decades, we have grown from a single building serving 50 students to a comprehensive K-12 institution educating over 1,200 students.
+                  <strong>Our History</strong><br />
+                  Extensive Academy was founded with a clear vision: to provide quality education that empowers every learner. The school’s journey began with a memorable opening ceremony on June 30, 2019. Summer lessons followed in August, and by September, we had officially commenced full academic operations.
                 </p>
                 <p>
-                  Our commitment to academic excellence and character development has remained constant throughout our growth. We've continuously evolved our programs to meet the changing needs of our students and society, incorporating cutting-edge technology and innovative teaching methods.
+                  <strong>Our Founding Team</strong><br />
+                  Extensive Academy was established through the dedication and passion of its founding team, five in number. Their collective vision laid the groundwork for a thriving learning environment.
                 </p>
                 <p>
-                  Today, Extensive Academy is proud to be recognized as one of the leading educational institutions in the region, with graduates attending top universities worldwide and making significant contributions to their communities.
+                  <strong>Pioneering Learners</strong><br />
+                  The school began with just 12 pioneering learners. Since then, our student population has continued to grow steadily—a testament to the trust parents place in us and the impact of our educational approach.
+                </p>
+                <p>
+                  <strong>A Strong Foundation</strong><br />
+                  Though our beginnings were modest, Extensive Academy has built a solid foundation rooted in excellence, commitment, and a passion for nurturing future leaders. We continue to grow, guided by the same values that inspired our founding.
                 </p>
               </div>
             </div>
+
             <div data-aos="fade-up"
               className="h-[500px] w-full rounded-xl flex items-center justify-center bg-cover bg-center"
               style={{ backgroundImage: "url('/lovable-uploads/abc.jpg')" }}

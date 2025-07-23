@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '@/components/Loader'; 
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {
   Calendar,
   User,
@@ -163,6 +163,7 @@ if (loading) {
 
   return (
     <>
+    <HelmetProvider>
     <Helmet>
       <title>News & Events | Extensive Academy</title>
       <meta
@@ -178,6 +179,8 @@ if (loading) {
       <meta property="og:url" content="https://www.extensiveacademy.org/news" />
       <meta name="twitter:card" content="summary_large_image" />
     </Helmet>
+    </HelmetProvider>
+      {/* Main Content */}
 
       {/* Modal Gallery */}
     {showGallery && (

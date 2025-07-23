@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState, useEffect } from 'react';
 import Loader from '@/components/Loader';
 
@@ -27,6 +27,7 @@ if (loading) {
 
   return (
     <div className="min-h-screen">
+      <HelmetProvider>
       <Helmet>
         <title>Welcome to Extensive Academy | Empowering Learners</title>
         <meta name="description" content="Extensive Academy: Empowering students from Crèche to High School with world-class education and facilities." />
@@ -35,7 +36,8 @@ if (loading) {
         <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/ab.jpg" />
         <meta property="og:url" content="https://www.extensiveacademy.org/" />
         <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      </Helmet> 
+      </HelmetProvider>
 
       {/* Hero Section */}
       <section className="hero-gradient text-white py-20 lg:py-32 relative overflow-hidden">
