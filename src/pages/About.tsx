@@ -19,20 +19,20 @@ if (loading) return <Loader />;
     <div className="min-h-screen pt-20">
       
       <HelmetProvider>
-         <Helmet>
-        <title>About Us | Extensive Academy</title>
-        <meta name="description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
-        <meta name="keywords" content="Extensive Academy, About, Education, Vision, Mission, History, Nigeria" />
-        <meta property="og:title" content="About Us | Extensive Academy" />
-        <meta property="og:description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.extensiveacademy.org/about" />
-        <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Us | Extensive Academy" />
-        <meta name="twitter:description" content="Discover Extensive Academy's mission, vision, and values." />
-        <meta name="twitter:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
-      </Helmet>
+        <Helmet>
+          <title>About Us | Extensive Academy</title>
+          <meta name="description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
+          <meta name="keywords" content="Extensive Academy, About, Education, Vision, Mission, History, Nigeria" />
+          <meta property="og:title" content="About Us | Extensive Academy" />
+          <meta property="og:description" content="Discover Extensive Academy's mission, vision, and values. Learn about our leadership, history, and dedication to excellence in education." />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.extensiveacademy.org/about" />
+          <meta property="og:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="About Us | Extensive Academy" />
+          <meta name="twitter:description" content="Discover Extensive Academy's mission, vision, and values." />
+          <meta name="twitter:image" content="https://www.extensiveacademy.org/lovable-uploads/abc.jpg" />
+        </Helmet>
       </HelmetProvider>
 
       {/* Hero Section */}
@@ -115,26 +115,26 @@ if (loading) return <Loader />;
       </section>
 
       {/* History */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-up" className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700">
-                <p>
-                  <strong>Our History</strong><br />
+                <p className='text-yellow-700'>
+                  <strong className='text-blue-700'>Our History</strong><br />
                   Extensive Academy was founded with a clear vision: to provide quality education that empowers every learner. The school’s journey began with a memorable opening ceremony on June 30, 2019. Summer lessons followed in August, and by September, we had officially commenced full academic operations.
                 </p>
-                <p>
-                  <strong>Our Founding Team</strong><br />
+                <p className='text-blue-700'>
+                  <strong className='text-green-700'>Our Founding Team</strong><br />
                   Extensive Academy was established through the dedication and passion of its founding team, five in number. Their collective vision laid the groundwork for a thriving learning environment.
                 </p>
-                <p>
-                  <strong>Pioneering Learners</strong><br />
+                <p className='text-green-700'>
+                  <strong className='text-yellow-700'>Pioneering Learners</strong><br />
                   The school began with just 12 pioneering learners. Since then, our student population has continued to grow steadily—a testament to the trust parents place in us and the impact of our educational approach.
                 </p>
-                <p>
-                  <strong>A Strong Foundation</strong><br />
+                <p className='text-yellow-700'>
+                  <strong className='text-blue-700'>A Strong Foundation</strong><br />
                   Though our beginnings were modest, Extensive Academy has built a solid foundation rooted in excellence, commitment, and a passion for nurturing future leaders. We continue to grow, guided by the same values that inspired our founding.
                 </p>
               </div>
