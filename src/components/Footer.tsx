@@ -30,10 +30,22 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
               Providing quality education from elementary through high school, preparing students for success in college and beyond.
             </p>
             <div className="flex space-x-4">
+               <a
+                href="https://www.facebook.com/share/1EvhLqej2n/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
               <Facebook className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+              </a>
               <Twitter className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
               <Instagram className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+               <a
+                href="http://www.youtube.com/@EXTENSIVEACADEMY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
               <Youtube className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+              </a>
             </div>
           </div>
 
