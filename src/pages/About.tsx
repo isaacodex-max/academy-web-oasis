@@ -115,7 +115,7 @@ if (loading) return <Loader />;
       </section>
 
       {/* History */}
-      <section className="py-16 bg-gray-300">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-up" className="space-y-6">

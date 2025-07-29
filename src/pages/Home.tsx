@@ -40,7 +40,7 @@ if (loading) {
       </HelmetProvider>
 
       {/* Hero Section */}
-      <section className="hero-gradient text-white py-20 lg:py-32 relative overflow-hidden">
+      <section className="hero-gradient text-white pt-[180px] sm:pt-[140px] md:pt-[120px] pb-20 lg:pt-[120px] lg:pb-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
