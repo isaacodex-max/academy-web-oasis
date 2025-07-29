@@ -66,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">extensiveacademy@gmail.com</p>
+                <p className="text-gray-300 text-sm">extensiveacademy2019@gmail.com</p>
               </div>
             </div>
           </div>

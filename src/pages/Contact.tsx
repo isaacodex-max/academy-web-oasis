@@ -240,7 +240,7 @@ Message: ${message}
                     <p className="text-white">
                       PLOT 15, JESUS AVENUE,<br />
                       OLOGBUN, SIMAWA-LIKOSI ROAD,<br />
-                      SHAGAMU, OGUN STATE.
+                      OGUN STATE.
                     </p>
                   </div>
                 </div>
@@ -265,9 +265,7 @@ Message: ${message}
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
                     <p className="text-white">
-                      General: extensiveacademy@gmail.com<br />
-                      Admissions: extensiveacademy@gmail.com<br />
-                      Support: extensiveacademy@gmail.com
+                      General: extensiveacademy2019@gmail.com
                     </p>
                   </div>
                 </div>

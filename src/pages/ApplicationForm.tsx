@@ -17,7 +17,7 @@ const ApplicationForm: React.FC = () => {
             <h1 className="text-2xl md:text-3xl font-extrabold text-blue-900">Extensive Academy</h1>
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               PLOT 15, JESUS AVENUE, OLOGBUN, SIMAWA-LIKOSI ROAD, SHAGAMU, OGUN STATE.<br />
-              Phone: 09065065415, Email: extensiveacademy@gmail.com<br />
+              Phone: 09065065415, Email: extensiveacademy2019@gmail.com<br />
               <span className="italic font-semibold block">Motto: Aspiring for Excellence</span>
             </p>
           </div>
@@ -31,7 +31,7 @@ const ApplicationForm: React.FC = () => {
 
         {/* Application Form */}
         <form
-          action="https://formsubmit.co/extensiveacademy@gmail.com"
+          action="https://formsubmit.co/extensiveacademy2019@gmail.com"
           method="POST"
           className="space-y-12"
         >
