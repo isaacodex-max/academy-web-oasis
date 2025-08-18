@@ -1,5 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Add this import at the top if using React Router
+
 
 interface FooterProps {
   currentPage: string;
@@ -53,13 +55,28 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
           <div>
             <h4 className="text-base md:text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><button onClick={() => onNavigate('about')} className="text-gray-300 hover:text-white transition-colors">About Us</button></li>
-              <li><button onClick={() => onNavigate('academics')} className="text-gray-300 hover:text-white transition-colors">Academics</button></li>
-              <li><button onClick={() => onNavigate('admissions')} className="text-gray-300 hover:text-white transition-colors">Admissions</button></li>
-              <li><button onClick={() => onNavigate('news')} className="text-gray-300 hover:text-white transition-colors">News & Events</button></li>
-              <li><button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors">Contact</button></li>
+              <li>
+                <Link to="/" className="text-gray-300 hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className="text-gray-300 hover:text-white transition-colors">
+                  News & Events
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
-          </div>
+          </div> 
 
           {/* Contact Info */}
           <div>

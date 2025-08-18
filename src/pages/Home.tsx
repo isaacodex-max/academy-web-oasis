@@ -284,6 +284,40 @@ if (loading) {
         </div>
       </section>
 
+      {/* YouTube Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+            Watch Our YouTube Videos
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Follow and subscribe to our YouTube channel for school highlights, events, and educational content.
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            {/* Correct YouTube Embed */}
+            <iframe
+              width="360"
+              height="215"
+              src="https://www.youtube.com/embed/aPdJU94TH9I"
+              title="Extensive Academy YouTube"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+            ></iframe>
+            {/* Subscribe Button */}
+            <a
+              href="https://www.youtube.com/@EXTENSIVEACADEMY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 mt-6 md:mt-0"
+            >
+              Subscribe on YouTube
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
