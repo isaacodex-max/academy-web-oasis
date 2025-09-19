@@ -2,7 +2,16 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState, useEffect } from 'react';
 import Loader from '@/components/Loader';
 
-import { ArrowRight, Users, Award, BookOpen, Calendar, Star, Play } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Users, Award, BookOpen, Calendar, Star, Play } from 'lucide-react';
+
+const heroImages = [
+  "/lovable-uploads/ab.jpg",
+  "/lovable-uploads/abc.jpg",
+  "/lovable-uploads/123.jpg",
+  "/lovable-uploads/Facility4.jpg",
+  "/lovable-uploads/Facility.jpg",
+  "/lovable-uploads/Facility13.jpg",
+];
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -10,20 +19,32 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const [loading, setLoading] = useState(true);
+  const [currentHero, setCurrentHero] = useState(0);
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, 1000); // simulate 1-second load time
-  return () => clearTimeout(timer);
-}, []);
-if (loading) {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <Loader />
-    </div>
-  );
-}
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Auto-slide effect
+  useEffect(() => {
+    const slider = setInterval(() => {
+      setCurrentHero((prev) => (prev + 1) % heroImages.length);
+    }, 7000); // 7 seconds
+    return () => clearInterval(slider);
+  }, []);
+
+  const goToSlide = (idx: number) => setCurrentHero(idx);
+  const prevSlide = () => setCurrentHero((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
+  const nextSlide = () => setCurrentHero((prev) => (prev + 1) % heroImages.length);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
@@ -39,19 +60,64 @@ if (loading) {
       </Helmet> 
       </HelmetProvider>
 
-      {/* Hero Section */}
-      <section className="hero-gradient text-white pt-[180px] sm:pt-[140px] md:pt-[120px] pb-20 lg:pt-[120px] lg:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      {/* Hero Section with Swiper */}
+      <section
+        className="hero-gradient text-white pt-[180px] sm:pt-[140px] md:pt-[120px] pb-20 lg:pt-[120px] lg:pb-32 relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroImages[currentHero]})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 1s ease-in-out"
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        {/* Swiper Controls */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-40 rounded-full p-2 hover:bg-opacity-70 transition"
+          aria-label="Previous Slide"
+        >
+          <ArrowLeft className="h-6 w-6 text-white" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-40 rounded-full p-2 hover:bg-opacity-70 transition"
+          aria-label="Next Slide"
+        >
+          <ArrowRight className="h-6 w-6 text-white" />
+        </button>
+        {/* Dots */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => goToSlide(idx)}
+              className={`w-3 h-3 rounded-full ${currentHero === idx ? 'bg-yellow-400' : 'bg-white bg-opacity-50'} border-2 border-white`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+        {/* Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1
+              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
               Welcome to
-              <span className="block text-yellow-300">Extensive Academy</span>
+              <span className="block text-yellow-300" data-aos="fade-up" data-aos-delay="600">
+                Extensive Academy
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            <p
+              className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90"
+              data-aos="fade-up"
+              data-aos-delay="700"
+            >
               Empowering minds, inspiring futures. Join our community of learners and discover your potential.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="800">
               <button 
                 onClick={() => onNavigate('admissions')}
                 className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
