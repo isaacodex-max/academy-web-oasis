@@ -1,6 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState, useEffect } from 'react';
 import Loader from '@/components/Loader';
+import { useNavigate } from 'react-router-dom';
 
 import { ArrowRight, ArrowLeft, Users, Award, BookOpen, Calendar, Star, Play } from 'lucide-react';
 
@@ -13,11 +14,8 @@ const heroImages = [
   "/lovable-uploads/Facility13.jpg",
 ];
 
-interface HomeProps {
-  onNavigate: (page: string) => void;
-}
-
-const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+const Home: React.FC = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [currentHero, setCurrentHero] = useState(0);
 
@@ -119,14 +117,14 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="800">
               <button 
-                onClick={() => onNavigate('admissions')}
+                onClick={() => navigate('/admissions')}
                 className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
               >
                 Apply Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
               <button 
-                onClick={() => onNavigate('about')}
+                onClick={() => navigate('/about')}
                 className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center"
               >
                 <Play className="mr-2 h-5 w-5" />
@@ -209,7 +207,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 Building strong foundations in reading, writing, mathematics, and critical thinking through engaging, hands-on learning experiences.
               </p>
               <button 
-                onClick={() => onNavigate('elementary')}
+                onClick={() => navigate('/elementary')}
                 className="text-blue-600 font-semibold hover:text-blue-800 transition-colors flex items-center"
               >
                 Learn More
@@ -229,7 +227,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 Preparing students for high school with advanced coursework, leadership opportunities, and character development programs.
               </p>
               <button 
-                onClick={() => onNavigate('middle')}
+                onClick={() => navigate('/middle')}
                 className="text-green-600 font-semibold hover:text-green-800 transition-colors flex items-center"
               >
                 Learn More
@@ -249,7 +247,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 College-preparatory curriculum with AP courses, dual enrollment options, and comprehensive college counseling support.
               </p>
               <button 
-                onClick={() => onNavigate('high')}
+                onClick={() => navigate('/high')}
                 className="text-purple-600 font-semibold hover:text-purple-800 transition-colors flex items-center"
               >
                 Learn More
@@ -289,7 +287,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   Cultural festivals are vibrant celebrations that showcase the unique traditions, music, dance, and attire of a people. They provide an opportunity...
                 </p>
                 <button 
-                  onClick={() => onNavigate('news')}
+                  onClick={() => navigate('/news')}
                   className="text-blue-600 font-semibold hover:text-blue-800 transition-colors"
                 >
                   Read More
@@ -314,7 +312,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   Admission is the process of enrolling into a school or institution. We're excited to announce At our school, admission is open from Crèche to JSS3
                 </p>
                 <button 
-                  onClick={() => onNavigate('news')}
+                  onClick={() => navigate('/news')}
                   className="text-green-600 font-semibold hover:text-green-800 transition-colors"
                 >
                   Read More
@@ -339,7 +337,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                  Our school is well-equipped with modern and essential facilities to ensure a safe and supportive learning environment.
                 </p>
                 <button 
-                  onClick={() => onNavigate('news')}
+                  onClick={() => navigate('/news')}
                   className="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors"
                 >
                   Read More
@@ -393,13 +391,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
               className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
             >
               Schedule a Visit
             </button>
             <button 
-              onClick={() => onNavigate('admissions')}
+              onClick={() => navigate('/admissions')}
               className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
             >
               Apply Online
@@ -407,6 +405,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
+      
     </div>
   );
 };

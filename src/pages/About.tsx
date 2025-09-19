@@ -189,6 +189,42 @@ if (loading) return <Loader />;
           </div>
         </div>
       </section>
+
+      {/* Gallery Section */}
+       
+       
+      {/*<section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Gallery</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore moments from Extensive Academy.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        { src: "/lovable-uploads/ab.jpg", alt: "Gallery 1" },
+        { src: "/lovable-uploads/abc.jpg", alt: "Gallery 2" },
+        { src: "/lovable-uploads/Facility4.jpg", alt: "Gallery 3" },
+        { src: "/lovable-uploads/Facility.jpg", alt: "Gallery 4" },
+        { src: "/lovable-uploads/Facility13.jpg", alt: "Gallery 5" },
+        // Add more images as needed
+      ].map((img, idx) => (
+        <div
+          key={idx}
+          className="rounded-xl overflow-hidden shadow-lg group relative"
+        >
+          <img
+            src={img.src}
+            alt={img.alt}
+            className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition duration-300"></div>
+        </div>
+      ))}
+    </div>
+        </div>
+      </section>*/}
     </div>
   );
 };
