@@ -28,8 +28,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   ];
 
     const newsItems = [
-        '🎓 School summer coaching begins August 4, 2025',
-        '📝 Admissions now open for 2025 session',
+        '📝 Admissions now open for 2026/2026 session',
       ];
 
 
