@@ -28,7 +28,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   ];
 
     const newsItems = [
-        '📝 Admissions now open for 2026/2026 session',
+        '🏆 Welcome to 2026!',  
+        '📝 Admissions now open for 2026 session',
       ];
 
 
